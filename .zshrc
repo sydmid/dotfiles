@@ -105,6 +105,7 @@ alias sv="sudo vim"
 alias nano="vim"
 alias res="sudo reboot now"
 alias shut="sudo shutdown now"
+alias src="source ~/.zshrc"
 export WORKON_HOME=~/Documents/PyEnvs
 source /home/omid/.local/bin/virtualenvwrapper.sh
 alias de="deactivate"

@@ -1,0 +1,83 @@
+general {
+        output_format = "i3bar"
+        colors = false
+        markup = pango
+        interval = 5
+        color_good = '#2f343f'
+		color_degraded = '#ebcb8b'
+		color_bad = '#ba5e57'
+}
+
+order += "cpu_usage"
+#order += "cpu_temperature 0"
+order += "disk /"
+#order += "ethernet enp1s0"
+order += "wireless _first_"
+order += "volume master"
+order += "battery all"
+order += "tztime local"
+
+cpu_usage {
+        format = "<span color='#000000' background='#f59335'>  cpu  %usage </span>"
+}
+
+
+cpu_temperature 0 {
+        format = "<span color='#000000' background='#bf616a'>  %degrees °C </span>"
+        path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+disk "/" {
+        format = "<span color='#000000' background='#fec7cd'>  %free Free </span>"
+}
+
+disk "/home" {
+        format = "<span color='#000000' background='#a1d569'>  %free Free </span>"
+}
+
+ethernet enp1s0 {
+        format_up = "<span color='#000000' background='#88c0d0'>  %ip </span>"
+        format_down = "<span background='#88c0d0'>  Disconnected </span>"
+}
+wireless _first_ {
+        format_up = "<span color='#000000' background='#b48ead'>  %essid </span>"
+        format_down = "W: down"
+}
+
+wireless wlp2s0 {
+        format_up = "<span color='#000000' background='#b48ead'>  %essid </span>"
+        format_down = "<span color='#000000' background='#b48ead'>  Disconnected </span>"
+}
+
+volume master {
+        format = "<span color='#000000' background='#ebcb8b'>  %volume </span>"
+        format_muted = "<span color='#000000' background='#ebcb8b'>  Muted </span>"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+battery all {
+        # format = "%status %percentage %remaining %emptytime"
+        format = "<span color='#000000' background='#a3be8c'> %status %percentage </span>"
+        format_down = "No battery"
+        last_full_capacity = true
+        integer_battery_capacity = true
+        # status_chr = ""
+        status_chr = "⚡"
+        # status_bat = "bat"
+        # status_bat = "☉"
+        status_bat = ""
+        # status_unk = "?"
+        status_unk = ""
+        # status_full = ""
+        status_full = "☻"
+        low_threshold = 15
+        threshold_type = time
+}
+
+tztime local {
+		format = "<span color='#000000' background='#81a1c1'> %time </span>"
+		format_time = " %a %-d %b %H:%M"
+}
+

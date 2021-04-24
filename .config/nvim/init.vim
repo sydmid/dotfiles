@@ -28,7 +28,5 @@ cnoremap <C-N> <Down>
 
 command W w !sudo tee "%" > /dev/null
 
-nnoremap <Leader>y "+y
-nnoremap <Leader>p "+p
-vnoremap <Leader>y "+y
-vnoremap <Leader>p "+p
+noremap <Leader>y "+y
+noremap <Leader>p "+p

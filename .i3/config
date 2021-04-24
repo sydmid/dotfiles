@@ -83,12 +83,8 @@ bindsym $super+9 resize grow width 10 px or 10 ppt
 bindsym $super+z exec terminal -e 'ranger'
 bindsym $super+n exec subl -n
 bindsym $super+Ctrl+b exec terminal -e 'bmenu'
-# bindsym $super+F2 exec palemoon
 bindsym $super+e exec pcmanfm
 bindsym $super+w exec --no-startup-id google-chrome-stable
-# bindsym $super+Shift+e exec pcmanfm_pkexec
-# bindsym $super+F5 exec terminal -e 'mocp'
-# bindsym $super+t exec --no-startup-id pkill picom
 bindsym $super+Ctrl+t exec --no-startup-id picom -b
 bindsym $super+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
@@ -212,14 +208,14 @@ bindsym $super+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $super+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
+for_window [class="Viewnior"] floating enable
 for_window [class="Pcmanfm"] floating enable
-for_window [class="terminus"] floating enable
 for_window [class="URxvt"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Xarchiver"] floating enable resize set 1000 600
-for_window [class="Crow Translate"] floating enable border normal resize set 600 300
+for_window [class="Crow Translate"] floating enable border normal resize set 1000 500
 for_window [title="alsamixer"] floating enable border normal
-for_window [title="Subl"] floating enable border normal
+for_window [title="Subl"] floating enable
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
@@ -313,12 +309,12 @@ exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id crow
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -327,7 +323,7 @@ exec --no-startup-id xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x0 -
 # Change the variable name at the place you want to match the color
 # of your terminal like this:
 # [example]
-# If you want your bar to have the same background color as your 
+# If you want your bar to have the same background color as your
 # terminal background change the line 362 from:
 # background #14191D
 # to:
@@ -373,7 +369,7 @@ bar {
     colors {
         background #222D31
         statusline #F9FAF9
-        separator  #454947 
+        separator  #454947
 
 #                      border  backgr. text
         focused_workspace  #F9FAF9 #16a085 #292F34
@@ -394,7 +390,7 @@ bar {
   client.focused_inactive #80FFF9 #556064 #80FFF9 #FDF6E3
   client.unfocused        #80FFF9 #556064 #80FFF9 #FDF6E3
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.placeholder      #000000 #0c0c0c #ffffff #000000
 
   client.background       #2B2C2B
 
@@ -414,7 +410,7 @@ gaps outer 0
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps inverse_outer
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 

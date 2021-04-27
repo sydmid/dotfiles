@@ -4,8 +4,8 @@ general {
         markup = pango
         interval = 5
         color_good = '#2f343f'
-		color_degraded = '#ebcb8b'
-		color_bad = '#ba5e57'
+		    color_degraded = '#ebcb8b'
+		    color_bad = '#ba5e57'
 }
 
 order += "cpu_usage"
@@ -18,12 +18,12 @@ order += "battery all"
 order += "tztime local"
 
 cpu_usage {
-        format = "<span color='#000000' background='#f59335'>  cpu  %usage </span>"
+        format = "<span color='#ffffff'>  cpu  %usage </span>"
 }
 
 
 cpu_temperature 0 {
-        format = "<span color='#000000' background='#bf616a'>  %degrees °C </span>"
+        format = "<span color='#000000'>  %degrees °C </span>"
         path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
@@ -50,8 +50,8 @@ wireless wlp2s0 {
 }
 
 volume master {
-        format = "<span color='#000000' background='#ebcb8b'>  %volume </span>"
-        format_muted = "<span color='#000000' background='#ebcb8b'>  Muted </span>"
+        format = "<span color='#ffffff'>  %volume </span>"
+        format_muted = "<span color='#ffffff'>  Muted </span>"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
@@ -59,7 +59,7 @@ volume master {
 
 battery all {
         # format = "%status %percentage %remaining %emptytime"
-        format = "<span color='#000000' background='#a3be8c'> %status %percentage </span>"
+        format = "<span color='#ffffff'> %status %percentage </span>"
         format_down = "No battery"
         last_full_capacity = true
         integer_battery_capacity = true
@@ -77,7 +77,7 @@ battery all {
 }
 
 tztime local {
-		format = "<span color='#000000' background='#81a1c1'> %time </span>"
+		format = "<span color='#ffffff'> %time </span>"
 		format_time = " %a %-d %b %H:%M"
 }
 

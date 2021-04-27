@@ -29,17 +29,17 @@ bindsym Ctrl+Shift+F6 exec "/home/omid/.scripts/brightness-change.sh + DP-1"
 
 
 # Arandr Configs
-bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore; killall conky; sleep 1; start_conky_maia"
+bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
 
 #HDMI (2) modes
 #--------------
-bindsym $alt+Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore; killall conky; sleep 1; start_conky_maia"
-bindsym $alt+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP-1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; killall conky; sleep 1; start_conky_maia"
+bindsym $alt+Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore
+bindsym $alt+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP-1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore
 
 #Display Port (DP1) modes
 #------------------------
-bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore; killall conky; sleep 1; start_conky_maia"
-bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore; killall conky; sleep 1; start_conky_maia"
+bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
+bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
 
 # Names of the workspaces
 set $ws1    "1:   Terminal "
@@ -185,7 +185,7 @@ bindsym $mod1+z                 exec kitty -e 'ranger'
 bindsym $mod1+n workspace $ws2; exec subl
 bindsym $mod1+w workspace $ws3; exec google-chrome-stable
 bindsym $mod1+e workspace $ws4; exec pcmanfm
-bindsym Print                   exec --no-startup-id i3-scrotgnome-screenshot
+bindsym Print                   exec --no-startup-id i3-scrot
 bindsym $mod1+Print             --release exec --no-startup-id i3-scrot -s
 bindsym $mod1+Ctrl+Print        --release exec --no-startup-id i3-scrot -sc
 bindsym $mod1+Shift+x           exec --no-startup-id blurlock
@@ -243,6 +243,8 @@ mode "  " {
 
 # set specific windows to floating mode
 for_window [title="alsamixer"]                  floating enable border normal
+for_window [class="jetbrains-webstorm"]         floating enable
+for_window [class="jetbrains-pycharm-ce"]       floating enable
 for_window [title="Subl"]                       floating enable
 for_window [title="File Transfer*"]             floating enable
 for_window [title="i3_help"]                    floating enable sticky enable border normal
@@ -310,7 +312,7 @@ bar {
     bindsym button5         nop
     position                bottom
     tray_output             primary
-    separator_symbol        " "
+    #separator_symbol        ""
     workspace_buttons       yes
     strip_workspace_numbers no
 
@@ -344,8 +346,7 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id sbxkb
 exec_always --no-startup-id setxkbmap -option caps:escape
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id killall conky; sleep 1; start_conky_maia"
-exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore; killall conky; sleep 1; start_conky_maia"
+exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
 exec --no-startup-id nm-applet
 #exec --no-startup-id xfce4-power-manager
 #exec --no-startup-id pamac-tray

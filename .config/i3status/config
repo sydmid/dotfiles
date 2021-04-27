@@ -10,9 +10,9 @@ general {
 
 order += "cpu_usage"
 #order += "cpu_temperature 0"
-order += "disk /"
+#order += "disk /"
 #order += "ethernet enp1s0"
-order += "wireless _first_"
+#order += "wireless _first_"
 order += "volume master"
 order += "battery all"
 order += "tztime local"

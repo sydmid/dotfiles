@@ -6,8 +6,8 @@
  ********************************************************/
 
 * {
-    bg:           #556064;
-    bg-border:    #f3f3f3;
+    bg:           #263238;
+    bg-border:    #1ABC9C;
     fg:           #EBE8E8;
     accent-bg:    #1ABC9C;
     accent-fg:    #ffffff;

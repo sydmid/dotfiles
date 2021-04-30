@@ -2,6 +2,7 @@
 export ZSH="/home/omid/.oh-my-zsh"
 ZSH_THEME="minimal"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+DISABLE_AUTO_UPDATE='true'
 source $ZSH/oh-my-zsh.sh
 
 # Pyhton
@@ -40,10 +41,10 @@ alias dl='cd ~/Downloads && ls -lA'
 alias doc='cd ~/Documents && ls -lA'
 alias tmp='cd ~/Temporary && ls -lA'
 
-# no user group, color
-alias l="ls -oGah --group-directories-first"
-# same but no hidden
-alias ls="ls -oGh --group-directories-first"
+# no user group, no color
+alias l="ls -oGh"
+# direcotry first color
+alias ls="ls --group-directories-first --color=auto"
 # Order by last modified, long form no user group, color
 alias lt="ls -toG"
 # List all except . and ..., color, mark file types, long form no user group, file size

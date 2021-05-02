@@ -87,6 +87,7 @@ bindsym $mod2+Tab focus right
 
 # kill focused window
 bindsym $mod2+q kill
+bindsym $mod1+q [scratchpad] move scratchpad
 
 # change focus
 bindsym $mod1+$left  focus left
@@ -112,10 +113,8 @@ bindsym $mod1+Shift+Down     move down
 bindsym $mod1+Shift+Up       move up
 bindsym $mod1+Shift+Right    move right
 
-# split in horizontal orientation
+# split in horizontal/vertical orientation
 #bindsym $mod1+h split h
-
-# split in vertical orientation
 #bindsym $mod1+v split v
 
 # enter fullscreen mode for the focused container
@@ -156,11 +155,6 @@ bindsym $mod1+Shift+s sticky toggle
 # sticky preview for media
 bindsym $mod1+Shift+p fullscreen disable; floating enable; resize set 350 px 197 px; sticky enable; move window to position 1006 px 537 px
 
-# shortcut to change window border
-#bindsym $mod2+t border normal    0
-#bindsym $mod2+y border pixel     1
-#bindsym $mod2+u border none
-
 # switch to workspace
 bindsym $mod1+1 workspace $ws1
 bindsym $mod1+2 workspace $ws2
@@ -172,46 +166,36 @@ bindsym $mod1+7 workspace $ws7
 bindsym $mod1+8 workspace $ws8
 
 # move focused container to workspace
-bindsym $mod1+Shift+1 move container to workspace $ws1
-bindsym $mod1+Shift+2 move container to workspace $ws2
-bindsym $mod1+Shift+3 move container to workspace $ws3
-bindsym $mod1+Shift+4 move container to workspace $ws4
-bindsym $mod1+Shift+5 move container to workspace $ws5
-bindsym $mod1+Shift+6 move container to workspace $ws6
-bindsym $mod1+Shift+7 move container to workspace $ws7
-bindsym $mod1+Shift+8 move container to workspace $ws8
+bindsym $mod1+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod1+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod1+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod1+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod1+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod1+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod1+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod1+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # shortcut applications
-bindsym $mod1+z                     exec kitty -e 'ranger'
-bindsym $mod1+n                     exec subl -n
-bindsym $mod1+w                     exec google-chrome-stable
-bindsym $mod1+e                     exec pcmanfm /home/omid --no-desktop
+bindsym $mod1+t                     [title="dropdown-terminal"] scratchpad show; [title="dropdown-terminal"] move position center
+bindsym $mod1+e                     [title="dropdown-filemanager"] scratchpad show; [title="dropdown-filemanager"] move position center
+bindsym $mod1+n                     exec leafpad
+bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
+bindsym $mod1+Shift+e               exec pcmanfm -n /home/omid --no-desktop
 bindsym Print                       exec --no-startup-id i3-scrot
 bindsym $mod1+Print       --release exec --no-startup-id i3-scrot -s
 bindsym $mod1+Ctrl+Print  --release exec --no-startup-id i3-scrot -sc
 bindsym $mod1+Ctrl+x      --release exec --no-startup-id xkill
-bindsym $mod1+Shift+x               exec --no-startup-id blurlock
+bindsym $mod1+Shift+b               exec --no-startup-id blurlock
 
 # volume
 bindsym XF86AudioLowerVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
 bindsym XF86AudioRaiseVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
 bindsym XF86AudioMute            exec --no-startup-id amixer -q -D pulse sset Master toggle
 
-# notification
-#bindsym Ctrl+space              exec --no-startup-id dunstctl close
-#bindsym Ctrl+Shift+space        exec --no-startup-id dunstctl close-all
-#bindsym Ctrl+grave              exec --no-startup-id dunstctl history-pop
-#bindsym Ctrl+Shift+period       exec --no-startup-id dunstctl context
-
-# reload the configuration file
-bindsym $mod1+Shift+c reload
-
 # resize window
-#
 # fast-resize
 bindsym $mod1+0 resize shrink  width 10 px or 10 ppt
 bindsym $mod1+9 resize grow    width 10 px or 10 ppt
-
 # resize-mode
 bindsym $mod1+r mode "  "
 mode "  " {
@@ -238,11 +222,10 @@ for_window [title="alsamixer"]                      floating enable border norma
 for_window [title="Subl"]                           floating enable
 for_window [title="File Transfer*"]                 floating enable
 for_window [title="i3_help"]                        floating enable sticky enable
+for_window [class="Leafpad"]                        floating enable border pixel 1
+for_window [class="Google-chrome"]                  floating enable border pixel 1
 for_window [class="Gpick"]                          floating enable
 for_window [class="TelegramDesktop"]                floating enable
-for_window [class="Pcmanfm"]                        floating enable
-for_window [class="Thunar"]                         floating enable
-for_window [class="kitty"]                          floating enable border pixel 1
 for_window [class="mpv"]                            floating enable
 for_window [class="Xarchiver"]                      floating enable
 for_window [class="Crow Translate"]                 floating enable border pixel 1
@@ -271,16 +254,7 @@ for_window [window_role="bubble"]                   floating enable
 for_window [window_role="Preferences"]              floating enable
 
 # assign program to workspace
-#assign [class="URxvt"]                            → $ws1
-#assign [class="jetbrains-webstorm"]               → $ws2
-#assign [class="jetbrains-pycharm-ce"]             → $ws2
-#assign [class="code-oss"]                         → $ws2
-#assign [class="google-chrome"]                    → $ws3
-#assign [class="Xarchiver"]                        → $ws4
-#assign [class="Pcmanfm"]                          → $ws4
-#assign [class="Foxit Reader"]                     → $ws5
-#assign [class="mpv"]                              → $ws6
-#assign [class="TelegramDesktop"]                  → $ws8
+assign [class="google-chrome"]                     → $ws3
 
 # class                  border  backgr  text  indicator child_border
 client.focused          #42a5f5 #2F3D44 #42a5f5 #454948 #1685DF
@@ -292,9 +266,6 @@ client.background       #2B2C2B
 
 # start i3bar to display a workspace bar
 bar {
-    #mode                    hide
-    #hidden_state            hide
-    #modifier                $mod2
     i3bar_command           i3bar
     status_command          i3status
     bindsym button4         nop
@@ -327,7 +298,6 @@ gaps outer 0
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id nm-applet
-#exec_always --no-startup-id pulseaudio --start
 exec_always --no-startup-id lxpolkit
 exec_always --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
 exec_always --no-startup-id picom
@@ -338,9 +308,22 @@ exec --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160
 exec --no-startup-id nm-applet
 exec --no-startup-id clipit
 exec --no-startup-id crow
+exec --no-startup-id unclutter -grab
+
+# DropDown Terminal in Scratchpad
+for_window [title="dropdown-terminal"] floating enable border pixel 1
+for_window [title="dropdown-terminal"] resize set 1200 700
+for_window [title="dropdown-terminal"] move scratchpad
+exec --no-startup-id kitty -T "dropdown-terminal"
+
+# DropDown Ranger File Manager in Scratchpad
+for_window [title="dropdown-filemanager"] floating enable border pixel 1
+for_window [title="dropdown-filemanager"] resize set 1700 800
+for_window [title="dropdown-filemanager"] move scratchpad
+exec --no-startup-id kitty -T "dropdown-filemanager" -e "ranger"
 
 # restart i3 inplace
 bindsym $mod1+Shift+r restart
 
 # manage i3 session
-bindsym $mod1+Shift+e exec --no-startup-id i3-nagbar -t warning -f "pango:Hack 9" -m "Do you really want to exit?" -B "    Exit " "i3-msg exit" -B "    Lock " "pkill i3-nagbar && i3lock-fancy -f Source-Sans-Pro" -B "    Reboot " "pkill i3-nagbar && reboot" -B "    Shutdown " "pkill i3-nagbar && shutdown -h now"
+bindsym $mod1+Shift+x exec --no-startup-id i3-nagbar -t warning -f "pango:Hack 9" -m "Do you really want to exit?" -B "    Exit " "i3-msg exit" -B "    Lock " "pkill i3-nagbar && i3lock-fancy -f Source-Sans-Pro" -B "    Reboot " "pkill i3-nagbar && reboot" -B "    Shutdown " "pkill i3-nagbar && shutdown -h now"

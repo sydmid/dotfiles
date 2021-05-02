@@ -7,5 +7,5 @@ Icon=sublime-text
 
 [X-Action-Profile profile-zero]
 MimeTypes=inode/directory;
-Exec=/usr/bin/subl %F
+Exec=/usr/bin/subl -n %F
 Name=Default profile

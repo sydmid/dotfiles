@@ -4,48 +4,55 @@
 # i3 config file
 
 # font for window titles and bar
+#-------------------------------
 font pango:System San Francisco Display 12
 
 # Containers Title alignment
+#-------------------------------
 title_align center
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
+#-------------------------------
 set $mod1 Mod4
 set $mod2 Mod1
 
 # keys for focus, movement, and resize directions
+#-------------------------------
 set $left   h
 set $down   j
 set $up     k
 set $right  l
 
 # Sound
+#-------------------------------
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
 bindsym $mod1+Ctrl+m exec pavucontrol
 
 # Brightness
+#-------------------------------
 bindsym XF86MonBrightnessDown exec --no-startup-id "/home/omid/.scripts/brightness.sh down eDP-1"
 bindsym XF86MonBrightnessUp exec --no-startup-id "/home/omid/.scripts/brightness.sh up eDP-1"
 # External Monitor
+#-------------------------------
 bindsym $mod1+F5 exec "/home/omid/.scripts/brightness-change.sh - DP-1"
 bindsym $mod1+F6 exec "/home/omid/.scripts/brightness-change.sh + DP-1"
 
 
 # Arandr Configs
+#-------------------------------
 bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
-
 #HDMI (2) modes
-#--------------
+#-------------------------------
 bindsym $alt+Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore
 bindsym $alt+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP-1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore
-
 #Display Port (DP1) modes
-#------------------------
+#-------------------------------
 bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
 bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
 
-# Names of the workspaces
+# Icons of the workspaces
+#-------------------------------
 set $ws1    "1:  "
 set $ws2    "2:  "
 set $ws3    "3:  "
@@ -56,106 +63,134 @@ set $ws7    "7:  "
 set $ws8    "8:  "
 
 # workspaces/containers control
+#-------------------------------
 bindsym $mod1+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod1+Tab workspace next
 
 # $mod2+Mouse to drag floating windows to their wanted position
+#-------------------------------
 floating_modifier $mod2
 
 # control focused window when follows the mouse movements
+#-------------------------------
 focus_follows_mouse no
 
 # window border settings
-default_border          none
-default_floating_border none
+#-------------------------------
+default_border          pixel 1
+default_floating_border pixel 2
 
 # hiding borders adjacent to the screen edges
-hide_edge_borders vertical
+#-------------------------------
+hide_edge_borders both
 
 # set popups during fullscreen mode
+#-------------------------------
 popup_during_fullscreen smart
 
 # start a terminal
+#-------------------------------
 bindsym $mod1+Return exec --no-startup-id kitty
 bindsym $mod2+Ctrl+t workspace $ws1; exec --no-startup-id terminal
 
 # start a program launcher
+#-------------------------------
 bindsym $mod2+space exec  --no-startup-id --no-startup-id rofi -show drun
 
 # switching window with alt+tab
+#-------------------------------
 bindsym $mod2+Tab focus right
 
 # kill focused window
+#-------------------------------
 bindsym $mod2+q kill
 bindsym $mod1+q [scratchpad] move scratchpad
 
 # change focus
+#-------------------------------
 bindsym $mod1+$left  focus left
 bindsym $mod1+$down  focus down
 bindsym $mod1+$up    focus up
 bindsym $mod1+$right focus right
 
 # alternatively, you can use the cursor keys:
+#-------------------------------
 bindsym $mod1+Left   focus left
 bindsym $mod1+Down   focus down
 bindsym $mod1+Up     focus up
 bindsym $mod1+Right  focus right
 
 # move focused window
+#-------------------------------
 bindsym $mod1+Shift+$left    move left
 bindsym $mod1+Shift+$down    move down
 bindsym $mod1+Shift+$up      move up
 bindsym $mod1+Shift+$right   move right
 
 # alternatively, you can use the cursor keys:
+#-------------------------------
 bindsym $mod1+Shift+Left     move left
 bindsym $mod1+Shift+Down     move down
 bindsym $mod1+Shift+Up       move up
 bindsym $mod1+Shift+Right    move right
 
 # split in horizontal/vertical orientation
+#-------------------------------
+bindsym $mod1+v split v
 #bindsym $mod1+h split h
-#bindsym $mod1+v split v
 
 # enter fullscreen mode for the focused container
+#-------------------------------
 bindsym $mod2+Return fullscreen toggle
 
 # change container layout
+#-------------------------------
 bindsym $mod1+Ctrl+s layout stacking
 bindsym $mod1+Ctrl+w layout tabbed
 bindsym $mod1+Ctrl+e layout toggle split
 
 # toggle tiling / floating
+#-------------------------------
 bindsym Ctrl+space floating toggle
 
 # change focus between tiling / floating windows
+#-------------------------------
 bindsym $mod2+f focus mode_toggle
 
 # focus the parent container
+#-------------------------------
 bindsym $mod1+a focus parent
 
 # focus the child container
+#-------------------------------
 bindsym $mod1+Shift+a focus child
 
 # move the currently focused window to the scratchpad
+#-------------------------------
 bindsym $mod1+Shift+minus move scratchpad
 
 # show the next scratchpad window or hide the focused scratchpad window
+#-------------------------------
 bindsym $mod1+minus scratchpad show
 
 # move focused floating window to the center of all outputs
+#-------------------------------
 #bindsym $mod1+Shift+h move absolute position center
 
 # move focused floating window to the current position of the cursor
+#-------------------------------
 bindsym $mod1+Shift+m move position mouse
 
 # set a window to stick to the glass
+#-------------------------------
 bindsym $mod1+Shift+s sticky toggle
 
 # sticky preview for media
+#-------------------------------
 bindsym $mod1+Shift+p fullscreen disable; floating enable; resize set 350 px 197 px; sticky enable; move window to position 1006 px 537 px
 
 # switch to workspace
+#-------------------------------
 bindsym $mod1+1 workspace $ws1
 bindsym $mod1+2 workspace $ws2
 bindsym $mod1+3 workspace $ws3
@@ -166,6 +201,7 @@ bindsym $mod1+7 workspace $ws7
 bindsym $mod1+8 workspace $ws8
 
 # move focused container to workspace
+#-------------------------------
 bindsym $mod1+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod1+Shift+2 move container to workspace $ws2; workspace $ws2
 bindsym $mod1+Shift+3 move container to workspace $ws3; workspace $ws3
@@ -176,6 +212,7 @@ bindsym $mod1+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod1+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # shortcut applications
+#-------------------------------
 bindsym $mod1+t                     [title="dropdown-terminal"] scratchpad show; [title="dropdown-terminal"] move position center
 bindsym $mod1+e                     [title="dropdown-filemanager"] scratchpad show; [title="dropdown-filemanager"] move position center
 bindsym $mod1+n                     exec leafpad
@@ -188,15 +225,19 @@ bindsym $mod1+Ctrl+x      --release exec --no-startup-id xkill
 bindsym $mod1+Shift+b               exec --no-startup-id blurlock
 
 # volume
+#-------------------------------
 bindsym XF86AudioLowerVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
 bindsym XF86AudioRaiseVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
 bindsym XF86AudioMute            exec --no-startup-id amixer -q -D pulse sset Master toggle
 
 # resize window
+#-------------------------------
 # fast-resize
+#-------------------------------
 bindsym $mod1+0 resize shrink  width 10 px or 10 ppt
 bindsym $mod1+9 resize grow    width 10 px or 10 ppt
 # resize-mode
+#-------------------------------
 bindsym $mod1+r mode "  "
 mode "  " {
     # pressing left and up will shrink the window's width and height
@@ -218,26 +259,26 @@ mode "  " {
 }
 
 # set specific windows to floating mode
-for_window [title="alsamixer"]                      floating enable border normal
+#-------------------------------
+for_window [title="alsamixer"]                      floating enable
 for_window [title="Subl"]                           floating enable
 for_window [title="File Transfer*"]                 floating enable
 for_window [title="i3_help"]                        floating enable sticky enable
-for_window [class="Leafpad"]                        floating enable border pixel 1
-for_window [class="Google-chrome"]                  floating enable border pixel 1
+for_window [class="Leafpad"]                        floating enable
 for_window [class="Gpick"]                          floating enable
 for_window [class="TelegramDesktop"]                floating enable
 for_window [class="mpv"]                            floating enable
 for_window [class="Xarchiver"]                      floating enable
-for_window [class="Crow Translate"]                 floating enable border pixel 1
-for_window [class="calamares"]                      floating enable border normal
+for_window [class="Crow Translate"]                 floating enable
+for_window [class="calamares"]                      floating enable
 for_window [class="Clipgrab"]                       floating enable
 for_window [class="fpakman"]                        floating enable
-for_window [class="Galculator"]                     floating enable border pixel 1
-for_window [class="GParted"]                        floating enable border normal
+for_window [class="Galculator"]                     floating enable
+for_window [class="GParted"]                        floating enable
 for_window [class="Lightdm-settings"]               floating enable
 for_window [class="Lxappearance"]                   floating enable sticky enable
 for_window [class="Manjaro-hello"]                  floating enable
-for_window [class="Manjaro Settings Manager"]       floating enable border normal
+for_window [class="Manjaro Settings Manager"]       floating enable
 for_window [class="Nitrogen"]                       floating enable sticky enable
 for_window [class="Pamac-manager"]                  floating enable
 for_window [class="Pavucontrol"]                    floating enable
@@ -254,9 +295,11 @@ for_window [window_role="bubble"]                   floating enable
 for_window [window_role="Preferences"]              floating enable
 
 # assign program to workspace
-assign [class="google-chrome"]                     → $ws3
+#-------------------------------
+assign [class="google-chrome"]                      → $ws3
 
 # class                  border  backgr  text  indicator child_border
+#--------------------------------------------------------------------
 client.focused          #42a5f5 #2F3D44 #42a5f5 #454948 #1685DF
 client.focused_inactive #80d0ff #556064 #80d0ff #FDF6E3
 client.unfocused        #80d0ff #556064 #80d0ff #FDF6E3
@@ -265,6 +308,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #2B2C2B
 
 # start i3bar to display a workspace bar
+#-------------------------------
 bar {
     i3bar_command           i3bar
     status_command          i3status
@@ -290,11 +334,53 @@ bar {
 }
 
 # i3-gaps
-smart_gaps on
-gaps inner 0
-gaps outer 0
+#-------------------------------
+#smart_gaps on
+#smart_borders on
+#gaps inner 0
+#gaps outer 0
+
+# Enter the gap mode
+#-------------------------------
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod1+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 # startup applications
+#-------------------------------
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id nm-applet
@@ -309,21 +395,23 @@ exec --no-startup-id nm-applet
 exec --no-startup-id clipit
 exec --no-startup-id crow
 exec --no-startup-id unclutter -grab
-
 # DropDown Terminal in Scratchpad
-for_window [title="dropdown-terminal"] floating enable border pixel 1
+#-------------------------------
+for_window [title="dropdown-terminal"] floating enable
 for_window [title="dropdown-terminal"] resize set 1200 700
 for_window [title="dropdown-terminal"] move scratchpad
 exec --no-startup-id kitty -T "dropdown-terminal"
-
 # DropDown Ranger File Manager in Scratchpad
-for_window [title="dropdown-filemanager"] floating enable border pixel 1
+#-------------------------------
+for_window [title="dropdown-filemanager"] floating enable
 for_window [title="dropdown-filemanager"] resize set 1700 800
 for_window [title="dropdown-filemanager"] move scratchpad
 exec --no-startup-id kitty -T "dropdown-filemanager" -e "ranger"
 
 # restart i3 inplace
+#-------------------------------
 bindsym $mod1+Shift+r restart
 
 # manage i3 session
+#-------------------------------
 bindsym $mod1+Shift+x exec --no-startup-id i3-nagbar -t warning -f "pango:Hack 9" -m "Do you really want to exit?" -B "    Exit " "i3-msg exit" -B "    Lock " "pkill i3-nagbar && i3lock-fancy -f Source-Sans-Pro" -B "    Reboot " "pkill i3-nagbar && reboot" -B "    Shutdown " "pkill i3-nagbar && shutdown -h now"

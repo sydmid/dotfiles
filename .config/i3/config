@@ -5,32 +5,37 @@
 
 # startup applications
 #-------------------------------
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id lxpolkit
-exec_always --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
-exec_always --no-startup-id picom
-exec_always --no-startup-id fix_xcursor
-exec --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore"
-exec --no-startup-id nm-applet
-exec --no-startup-id clipit
-exec --no-startup-id crow
-exec --no-startup-id unclutter -grab
-exec --no-startup-id sbxkb
-exec --no-startup-id setxkbmap -option caps:escape
+exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec              --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore"
+exec              --no-startup-id nm-applet
+exec              --no-startup-id clipit
+exec              --no-startup-id crow
+exec              --no-startup-id unclutter -grab
+exec              --no-startup-id sbxkb
+exec              --no-startup-id setxkbmap -option caps:escape
+exec_always       --no-startup-id xautolock -time 10 -locker blurlock
+exec_always       --no-startup-id nm-applet
+exec_always       --no-startup-id lxpolkit
+exec_always       --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
+exec_always       --no-startup-id picom
+exec_always       --no-startup-id fix_xcursor
+
 # shortcut applications
 #-------------------------------
-bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=49% -mat -n 1 --class=dterminal kitty
-bindsym $mod1+e                     exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=1%  -mat -n 2 --class=dfilemanager kitty -e 'ranger'
-bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=49% -w 48% -h 48% --x-offset=49% -mat -class=dleafpad leafpad
+bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=49% -mat -n 1 kitty --class=floatkitty
+bindsym $mod1+backslash             exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=1%  -mat -n 2 --class=float kitty --class=floatkitty -e 'ranger'
+bindsym $mod1+e                     exec pcmanfm -n /home/omid --no-desktop
+bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=49% -w 48% -h 48% --x-offset=49% -mat -class=float leafpad
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
-bindsym $mod1+Shift+e               exec pcmanfm -n /home/omid --no-desktop
 bindsym Print                       exec --no-startup-id i3-scrot
 bindsym $mod1+Print       --release exec --no-startup-id i3-scrot -s
 bindsym $mod1+Ctrl+Print  --release exec --no-startup-id i3-scrot -sc
 bindsym $mod1+Ctrl+x      --release exec --no-startup-id xkill
 bindsym $mod1+Shift+b               exec --no-startup-id blurlock
+
+# Kill all dropdowns
+#-------------------------------
+bindsym $mod2+Delete [class="float"] kill
 
 # font for window titles and bar
 #-------------------------------
@@ -93,8 +98,9 @@ set $ws8    "8:  "
 
 # workspaces/containers control
 #-------------------------------
-bindsym $mod1+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod1+Tab workspace next
+bindsym $mod2+Ctrl+Right workspace next
+bindsym $mod2+Ctrl+Left workspace prev
 
 # $mod2+Mouse to drag floating windows to their wanted position
 #-------------------------------
@@ -274,7 +280,8 @@ mode "  " {
 
 # set specific windows to floating mode
 #-------------------------------
-for_window [class="kitty"]                          floating enable
+for_window [class="floatkitty"]                     floating enable
+#for_window [class="kitty"]                          floating enable
 for_window [title="alsamixer"]                      floating enable
 for_window [title="Subl"]                           floating enable
 for_window [title="File Transfer*"]                 floating enable

@@ -4,6 +4,12 @@ map <leader>bd :Bclose<cr>
 " Close all buffers
 map <leader>ba :1,1000 bd!<cr>
 
+" Fast moving 
+nnoremap H ^
+nnoremap L $
+nnoremap J <C-d>
+nnoremap K <C-u>
+
 " Fast Saving Buffer
 nmap <leader>w :w!<cr>
 

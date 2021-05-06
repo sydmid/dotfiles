@@ -4,7 +4,7 @@ map <leader>bd :Bclose<cr>
 " Close all buffers
 map <leader>ba :1,1000 bd!<cr>
 
-" Fast moving 
+" Fast moving
 nnoremap H ^
 nnoremap L $
 nnoremap J <C-d>
@@ -46,6 +46,7 @@ set expandtab " Expand tabs to spaces
 set foldcolumn=0 " Column to show folds
 set foldenable " Enable folding
 set foldlevel=0 " Close all folds by default
+set foldlevelstart=20
 set foldmethod=syntax " Syntax are used to specify folds
 set foldminlines=0 " Allow folding single lines
 set foldnestmax=5 " Set max fold nesting level

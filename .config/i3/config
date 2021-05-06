@@ -3,6 +3,35 @@
 # License: MIT
 # i3 config file
 
+# startup applications
+#-------------------------------
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id xautolock -time 10 -locker blurlock
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id lxpolkit
+exec_always --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
+exec_always --no-startup-id picom
+exec_always --no-startup-id fix_xcursor
+exec --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore"
+exec --no-startup-id nm-applet
+exec --no-startup-id clipit
+exec --no-startup-id crow
+exec --no-startup-id unclutter -grab
+exec --no-startup-id sbxkb
+exec --no-startup-id setxkbmap -option caps:escape
+# shortcut applications
+#-------------------------------
+bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=49% -mat -n 1 --class=dterminal kitty
+bindsym $mod1+e                     exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=1%  -mat -n 2 --class=dfilemanager kitty -e 'ranger'
+bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=49% -w 48% -h 48% --x-offset=49% -mat -class=dleafpad leafpad
+bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
+bindsym $mod1+Shift+e               exec pcmanfm -n /home/omid --no-desktop
+bindsym Print                       exec --no-startup-id i3-scrot
+bindsym $mod1+Print       --release exec --no-startup-id i3-scrot -s
+bindsym $mod1+Ctrl+Print  --release exec --no-startup-id i3-scrot -sc
+bindsym $mod1+Ctrl+x      --release exec --no-startup-id xkill
+bindsym $mod1+Shift+b               exec --no-startup-id blurlock
+
 # font for window titles and bar
 #-------------------------------
 font pango:System San Francisco Display 12
@@ -90,8 +119,7 @@ popup_during_fullscreen smart
 
 # start a terminal
 #-------------------------------
-bindsym $mod1+Return exec --no-startup-id kitty
-bindsym $mod2+Ctrl+t workspace $ws1; exec --no-startup-id terminal
+bindsym $mod1+t exec --no-startup-id urxvt
 
 # start a program launcher
 #-------------------------------
@@ -104,7 +132,6 @@ bindsym $mod2+Tab focus right
 # kill focused window
 #-------------------------------
 bindsym $mod2+q kill
-bindsym $mod1+q [scratchpad] move scratchpad
 
 # change focus
 #-------------------------------
@@ -137,7 +164,7 @@ bindsym $mod1+Shift+Right    move right
 # split in horizontal/vertical orientation
 #-------------------------------
 bindsym $mod1+v split v
-#bindsym $mod1+h split h
+bindsym $mod1+Shift+v split h
 
 # enter fullscreen mode for the focused container
 #-------------------------------
@@ -211,19 +238,6 @@ bindsym $mod1+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod1+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod1+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# shortcut applications
-#-------------------------------
-bindsym $mod1+t                     [title="dropdown-terminal"] scratchpad show; [title="dropdown-terminal"] move position center
-bindsym $mod1+e                     [title="dropdown-filemanager"] scratchpad show; [title="dropdown-filemanager"] move position center
-bindsym $mod1+n                     exec leafpad
-bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
-bindsym $mod1+Shift+e               exec pcmanfm -n /home/omid --no-desktop
-bindsym Print                       exec --no-startup-id i3-scrot
-bindsym $mod1+Print       --release exec --no-startup-id i3-scrot -s
-bindsym $mod1+Ctrl+Print  --release exec --no-startup-id i3-scrot -sc
-bindsym $mod1+Ctrl+x      --release exec --no-startup-id xkill
-bindsym $mod1+Shift+b               exec --no-startup-id blurlock
-
 # volume
 #-------------------------------
 bindsym XF86AudioLowerVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
@@ -260,6 +274,7 @@ mode "  " {
 
 # set specific windows to floating mode
 #-------------------------------
+for_window [class="kitty"]                          floating enable
 for_window [title="alsamixer"]                      floating enable
 for_window [title="Subl"]                           floating enable
 for_window [title="File Transfer*"]                 floating enable
@@ -333,19 +348,12 @@ bar {
     }
 }
 
-# i3-gaps
-#-------------------------------
-#smart_gaps on
-#smart_borders on
-#gaps inner 0
-#gaps outer 0
-
 # Enter the gap mode
 #-------------------------------
-set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod1+Shift+g mode "$mode_gaps"
+bindsym $mod1+g mode "$mode_gaps_outer"
+bindsym $mod1+Shift+g mode "$mode_gaps_inner"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
@@ -378,35 +386,6 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-# startup applications
-#-------------------------------
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id lxpolkit
-exec_always --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
-exec_always --no-startup-id picom
-exec_always --no-startup-id sbxkb
-exec_always --no-startup-id setxkbmap -option caps:escape
-exec_always --no-startup-id fix_xcursor
-exec --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore"
-exec --no-startup-id nm-applet
-exec --no-startup-id clipit
-exec --no-startup-id crow
-exec --no-startup-id unclutter -grab
-# DropDown Terminal in Scratchpad
-#-------------------------------
-for_window [title="dropdown-terminal"] floating enable
-for_window [title="dropdown-terminal"] resize set 1200 700
-for_window [title="dropdown-terminal"] move scratchpad
-exec --no-startup-id kitty -T "dropdown-terminal"
-# DropDown Ranger File Manager in Scratchpad
-#-------------------------------
-for_window [title="dropdown-filemanager"] floating enable
-for_window [title="dropdown-filemanager"] resize set 1700 800
-for_window [title="dropdown-filemanager"] move scratchpad
-exec --no-startup-id kitty -T "dropdown-filemanager" -e "ranger"
 
 # restart i3 inplace
 #-------------------------------

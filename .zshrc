@@ -36,6 +36,8 @@ alias ln='ln -iv'
 alias mkdir='mkdir -v'
 alias rm='rm -i'
 alias p='ps axo pid,user,pcpu,comm'
+# cat persistent storage
+alias eps='cat $HOME/.scripts/persistentStorage.sh'
 # no user group, no color
 alias l="ls -oGh"
 # direcotry first color
@@ -50,13 +52,19 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 # Copy ssh public key
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
-#functions
-# Create a new directory and enter it
-mkd() {
-    mkdir -p "$@" && cd "$@"
-}
 
 # Bookmarks
 alias dl='cd ~/Downloads && ls -lA'
 alias doc='cd ~/Documents && ls -lA'
 alias tmp='cd ~/Temporary && ls -lA'
+
+# Create a new directory and enter it
+mkd() {
+    mkdir -p "$@" && cd "$@"
+}
+
+# change screen shot session from persistent storage
+sss() {
+    sed -i "s/export SSSession='.*'/export SSSession='$@'/" $HOME/.scripts/persistentStorage.sh
+}
+

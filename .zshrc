@@ -16,6 +16,7 @@ alias shut="sudo shutdown now"
 alias res="sudo reboot now"
 
 # Apps
+alias scr="cd $HOME/.scripts"
 alias composeup="docker-compose -f ~/docker-compose.yml up -d"
 alias config='/usr/bin/git --git-dir=/home/omid/.cfg/ --work-tree=/home/omid'
 alias r='ranger'
@@ -66,5 +67,10 @@ mkd() {
 # change screen shot session from persistent storage
 sss() {
     sed -i "s/export SSSession='.*'/export SSSession='$@'/" $HOME/.scripts/persistentStorage.sh
+}
+
+# get current SSSession
+esss() {
+    grep "SSSession='.*'" ./.scripts/persistentStorage.sh | sed --expression "s/export SSSession='//g" | sed --expression "s/'//g"
 }
 

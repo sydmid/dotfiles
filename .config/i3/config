@@ -45,6 +45,10 @@ bindsym $mod2+F4 --release exec --no-startup-id xkill
 #-------------------------------
 bindsym $mod2+Delete [class="float"] kill
 
+# Kill with modifier+middle click
+#-------------------------------
+bindsym --whole-window $mod2+button2 kill
+
 # font for window titles and bar
 #-------------------------------
 font pango:System San Francisco Display 12
@@ -213,10 +217,6 @@ bindsym $mod1+Shift+minus move scratchpad
 # show the next scratchpad window or hide the focused scratchpad window
 #-------------------------------
 bindsym $mod1+minus scratchpad show
-
-# move focused floating window to the center of all outputs
-#-------------------------------
-#bindsym $mod1+Shift+h move absolute position center
 
 # move focused floating window to the current position of the cursor
 #-------------------------------

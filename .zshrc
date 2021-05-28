@@ -27,6 +27,8 @@ alias python='python3'
 alias s='subl'
 alias v='nvim'
 alias sv="sudo nvim"
+alias zshrc="nvim $HOME/.zshrc"
+alias i3conf='nvim //home/omid/.config/i3/config'
 
 # Commands
 alias fdir='find . -type d -name'

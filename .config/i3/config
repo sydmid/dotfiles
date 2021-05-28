@@ -26,7 +26,7 @@ exec_always       --no-startup-id fix_xcursor
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
 bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=49% -mat -n 1 kitty --class=floatkitty
 bindsym $mod1+backslash             exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=1%  -mat -n 2 --class=float kitty --class=floatkitty -e 'ranger'
-bindsym $mod1+e                     exec pcmanfm -n /home/omid --no-desktop
+bindsym $mod1+e                     workspace $ws4; exec pcmanfm -n /home/omid --no-desktop
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=49% -w 48% -h 48% --x-offset=49% -mat -class=float leafpad
 bindsym $mod1+Shift+b               exec --no-startup-id blurlock
 # Print screens
@@ -288,22 +288,23 @@ mode "  " {
 
 # set specific windows to floating mode
 #-------------------------------
+for_window [class="Pcmanfm"]                        floating enable resize set 2000 1300, move absolute position center
 for_window [class="Display"]                        floating enable
 for_window [class="floatkitty"]                     floating enable
 for_window [title="alsamixer"]                      floating enable
-for_window [title="Subl"]                           floating enable
+for_window [title="Subl"]                           floating enable resize set 2000 1300, move absolute position center
 for_window [title="File Transfer*"]                 floating enable
 for_window [title="i3_help"]                        floating enable sticky enable
-for_window [class="Leafpad"]                        floating enable
-for_window [class="Gpick"]                          floating enable
-for_window [class="TelegramDesktop"]                floating enable
-for_window [class="mpv"]                            floating enable
-for_window [class="Xarchiver"]                      floating enable
+for_window [class="Leafpad"]                        floating enable, move absolute position center
+for_window [class="Gpick"]                          floating enable, move absolute position center
+for_window [class="TelegramDesktop"]                floating enable, move absolute position center
+for_window [class="mpv"]                            floating enable, move absolute position center
+for_window [class="Xarchiver"]                      floating enable resize set 1200 800, move absolute position center
 for_window [class="Crow Translate"]                 floating enable
 for_window [class="calamares"]                      floating enable
 for_window [class="Clipgrab"]                       floating enable
 for_window [class="fpakman"]                        floating enable
-for_window [class="Galculator"]                     floating enable
+for_window [class="Galculator"]                     floating enable, move absolute position center
 for_window [class="GParted"]                        floating enable
 for_window [class="Lightdm-settings"]               floating enable
 for_window [class="Lxappearance"]                   floating enable sticky enable
@@ -327,6 +328,7 @@ for_window [window_role="Preferences"]              floating enable
 # assign program to workspace
 #-------------------------------
 assign [class="google-chrome"]                      → $ws3
+assign [class="Pcmanfm"]                            → $ws4
 
 # class                  border  backgr  text  indicator child_border
 #--------------------------------------------------------------------
@@ -351,15 +353,15 @@ bar {
     strip_workspace_numbers no
 
     colors {
-        background  #212121
+        background  #F2F2F2
         statusline  #dddddd
         separator   #666666
         # class             border  backgr. text
-        focused_workspace   #1685DF #1685DF #ffffff
-        active_workspace    #212121 #212121 #ffffff
+        focused_workspace   #1685DF #1685DF #000000
+        active_workspace    #212121 #212121 #000000
         inactive_workspace  #212121 #212121 #86888c
-        urgent_workspace    #d64e4e #d64e4e #ffffff
-        binding_mode        #229c56 #229c56 #ffffff
+        urgent_workspace    #d64e4e #d64e4e #000000
+        binding_mode        #229c56 #229c56 #000000
     }
 }
 

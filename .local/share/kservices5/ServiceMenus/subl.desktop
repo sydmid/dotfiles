@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name = Open In Sublime
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+X-KDE-Priority=TopLevel
+Actions = opensubl
+
+[Desktop Action opensubl]
+Name = Open In Subl
+Exec=/usr/bin/subl --command new_file %f
+Icon=sublime-text
+

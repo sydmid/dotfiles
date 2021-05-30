@@ -76,3 +76,8 @@ esss() {
     grep "SSSession='.*'" ./.scripts/persistentStorage.sh | sed --expression "s/export SSSession='//g" | sed --expression "s/'//g"
 }
 
+# DropboxSync
+drops() {
+  rsync -av --delete /home/omid/Documents/syncthing /home/omid/gksy\ Dropbox/syncbooks;
+  rsync -av --delete /home/omid/Documents/_saved_pages /home/omid/gksy\ Dropbox/syncpages
+}

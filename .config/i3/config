@@ -14,20 +14,20 @@ exec              --no-startup-id unclutter -grab
 exec              --no-startup-id sbxkb
 exec              --no-startup-id setxkbmap -option caps:escape
 exec              --no-startup-id sed -i "s/export SSSession='.*'/export SSSession='General'/" $HOME/.scripts/persistentStorage.sh
+exec              --no-startup-id imwheel -b 45
 exec_always       --no-startup-id xautolock -time 10 -locker blurlock
 exec_always       --no-startup-id nm-applet
 exec_always       --no-startup-id lxpolkit
 exec_always       --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
 exec_always       --no-startup-id picom
 exec_always       --no-startup-id fix_xcursor
-
 # shortcut applications
 #-------------------------------
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
-bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=49% -mat -n 1 kitty --class=floatkitty
+bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
 bindsym $mod1+backslash             exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=1%  -mat -n 2 --class=float kitty --class=floatkitty -e 'ranger'
-bindsym $mod1+e                     workspace $ws4; exec pcmanfm -n /home/omid --no-desktop
-bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=49% -w 48% -h 48% --x-offset=49% -mat -class=float leafpad
+bindsym $mod1+e                     workspace $ws4; exec dolphin /home/omid
+bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat -class=float leafpad
 bindsym $mod1+Shift+b               exec --no-startup-id blurlock
 # Print screens
 #-------------------------------
@@ -35,19 +35,6 @@ bindsym Print                       --release exec --no-startup-id /home/omid/.s
 bindsym $mod1+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/noselection.sh
 bindsym Shift+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/noselectionONLYSUB.sh
 bindsym Ctrl+Print                  --release exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-
-
-# xkill
-#-------------------------------
-bindsym $mod2+F4 --release exec --no-startup-id xkill
-
-# Kill all dropdowns
-#-------------------------------
-bindsym $mod2+Delete [class="float"] kill
-
-# Kill with modifier+middle click
-#-------------------------------
-bindsym --whole-window $mod2+button2 kill
 
 # font for window titles and bar
 #-------------------------------
@@ -61,6 +48,26 @@ title_align center
 #-------------------------------
 set $mod1 Mod4
 set $mod2 Mod1
+
+# Default Container mod
+#-------------------------------
+workspace_layout tabbed
+
+# right button over a titlebar kills the window
+#-------------------------------
+bindsym --release button3 kill
+
+# xkill
+#-------------------------------
+bindsym $mod2+F4 --release exec --no-startup-id xkill
+
+# Kill all dropdowns
+#-------------------------------
+bindsym $mod2+Delete [class="float"] kill
+
+# Kill with modifier+middle click
+#-------------------------------
+#bindsym --whole-window $mod2+button2 kill
 
 # keys for focus, movement, and resize directions
 #-------------------------------
@@ -288,17 +295,12 @@ mode "  " {
 
 # set specific windows to floating mode
 #-------------------------------
-for_window [class="Pcmanfm"]                        floating enable resize set 2000 1300, move absolute position center
-for_window [class="Display"]                        floating enable
 for_window [class="floatkitty"]                     floating enable
 for_window [title="alsamixer"]                      floating enable
-for_window [title="Subl"]                           floating enable resize set 2000 1300, move absolute position center
 for_window [title="File Transfer*"]                 floating enable
 for_window [title="i3_help"]                        floating enable sticky enable
 for_window [class="Leafpad"]                        floating enable, move absolute position center
 for_window [class="Gpick"]                          floating enable, move absolute position center
-for_window [class="TelegramDesktop"]                floating enable, move absolute position center
-for_window [class="mpv"]                            floating enable, move absolute position center
 for_window [class="Xarchiver"]                      floating enable resize set 1200 800, move absolute position center
 for_window [class="Crow Translate"]                 floating enable
 for_window [class="calamares"]                      floating enable
@@ -328,7 +330,8 @@ for_window [window_role="Preferences"]              floating enable
 # assign program to workspace
 #-------------------------------
 assign [class="google-chrome"]                      → $ws3
-assign [class="Pcmanfm"]                            → $ws4
+assign [class="dolphin"]                            → $ws4
+assign [class="jetbrains-webstorm"]                 → $ws2
 
 # class                  border  backgr  text  indicator child_border
 #--------------------------------------------------------------------
@@ -403,6 +406,7 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 # restart i3 inplace
 #-------------------------------
 bindsym $mod1+Shift+r restart

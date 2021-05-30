@@ -1,0 +1,23 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/x-iso;application/x-iso9660-image;application/x-udf-image;application/x-cd-image;inode/ISO-image;
+Icon=dialog-ok
+Actions=checkmd5;checksha1;checksha256
+TryExec=md5sum
+X-KDE-Submenu=Verify Checksums
+
+[Desktop Action checkmd5]
+Exec=notify-send -t 0 -i "dialog-ok" "MD5 Checksum" "`md5sum %F`"
+Icon=dialog-ok
+Name=Read md5 Checksum
+
+[Desktop Action checksha1]
+Exec=notify-send -t 0 -i "dialog-ok" "SHA1 Checksum" "`sha1sum %F`"
+Icon=dialog-ok
+Name=Read sha1 Checksum
+
+[Desktop Action checksha256]
+Exec=notify-send -t 0 -i "dialog-ok" "SHA256 Checksum" "`sha256sum %F`"
+Icon=dialog-ok
+Name=Read sha256 Checksum

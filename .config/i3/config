@@ -40,6 +40,10 @@ bindsym Ctrl+Print                  --release exec --no-startup-id maim -s | xcl
 #-------------------------------
 font pango:System San Francisco Display 12
 
+# Showing Only app classes
+#-------------------------------
+for_window [class=".*"] title_format "%class"
+
 # Containers Title alignment
 #-------------------------------
 title_align center

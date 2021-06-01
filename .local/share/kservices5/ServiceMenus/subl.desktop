@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=KonqPopupMenu/Plugin
 MimeType=inode/directory;
 X-KDE-Priority=TopLevel
-Actions = opensubl
+Actions = opensublime
 
 [Desktop Action opensubl]
 Name = Open In Subl

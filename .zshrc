@@ -16,21 +16,20 @@ alias shut="sudo shutdown now"
 alias res="sudo reboot now"
 
 # Apps
-alias scr="cd $HOME/.scripts"
-alias composeup="docker-compose -f ~/docker-compose.yml up -d"
-alias config='/usr/bin/git --git-dir=/home/omid/.cfg/ --work-tree=/home/omid'
-alias r='ranger'
-alias nano="nvim"
-alias vim=nvim
-alias g='git'
-alias python='python3'
-alias s='subl'
 alias v='nvim'
+alias vim=nvim
 alias sv="sudo nvim"
+alias s='subl'
+alias r='ranger'
+alias g='git'
+alias composeup="docker-compose -f ~/docker-compose.yml up -d"
+alias scr="cd $HOME/.scripts"
+alias python='python3'
 alias zshrc="nvim $HOME/.zshrc"
-alias i3conf='nvim //home/omid/.config/i3/config'
+alias config='/usr/bin/git --git-dir=/home/omid/.cfg/ --work-tree=/home/omid'
 
 # Commands
+alias off='xset dpms force off'
 alias fdir='find . -type d -name'
 alias ff='find . -type f -name'
 alias cp='cp -iv'

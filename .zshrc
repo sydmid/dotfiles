@@ -78,5 +78,12 @@ esss() {
 # DropboxSync
 drops() {
   rsync -av --delete /home/omid/Documents/syncthing /home/omid/gksy\ Dropbox/syncbooks;
-  rsync -av --delete /home/omid/Documents/_saved_pages /home/omid/gksy\ Dropbox/syncpages
+  rsync -av --delete /home/omid/Documents/_saved_pages /home/omid/gksy\ Dropbox/syncpages;
+  rsync -av --delete /home/omid/Downloads/WEB_CLIPS /home/omid/gksy\ Dropbox/WEB_CLIPS;
+}
+
+# Pacman Usefull Aliases
+alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+pacdeps() {
+  LC_ALL=C pacman -Si $1 | awk -F'[:<=>]' '/^Depends/ {print $2}' | xargs -n1 | sort -u
 }

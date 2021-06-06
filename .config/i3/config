@@ -6,21 +6,24 @@
 # startup applications
 #-------------------------------
 exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec              --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore"
+exec              --no-startup-id xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore
 exec              --no-startup-id nm-applet
 exec              --no-startup-id clipit
 exec              --no-startup-id crow
 exec              --no-startup-id unclutter -grab
 exec              --no-startup-id sbxkb
-exec              --no-startup-id setxkbmap -option caps:escape
+exec              --no-startup-id setxkbmap -option caps:ctrl_modifier
+exec              --no-startup-id xcape -e Caps_Lock=Escape
 exec              --no-startup-id sed -i "s/export SSSession='.*'/export SSSession='General'/" $HOME/.scripts/persistentStorage.sh
 exec              --no-startup-id imwheel -b 45
+exec              --no-startup-id sleep 2; start_conky_custom1
 exec_always       --no-startup-id xautolock -time 10 -locker blurlock
 exec_always       --no-startup-id nm-applet
 exec_always       --no-startup-id lxpolkit
 exec_always       --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
 exec_always       --no-startup-id picom
 exec_always       --no-startup-id fix_xcursor
+
 # shortcut applications
 #-------------------------------
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
@@ -29,6 +32,7 @@ bindsym $mod1+backslash             exec --no-startup-id tdrop --y-offset=1%  -w
 bindsym $mod1+e                     workspace $ws4; exec dolphin /home/omid
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat -class=float leafpad
 bindsym $mod1+Shift+b               exec --no-startup-id blurlock
+
 # Print screens
 #-------------------------------
 bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ssmanage/noselectionNOSUB.sh
@@ -88,25 +92,25 @@ bindsym $mod1+Ctrl+m exec pavucontrol
 
 # Brightness
 #-------------------------------
-bindsym XF86MonBrightnessDown exec --no-startup-id "/home/omid/.scripts/brightness.sh down eDP-1"
-bindsym XF86MonBrightnessUp exec --no-startup-id "/home/omid/.scripts/brightness.sh up eDP-1"
+bindsym XF86MonBrightnessDown exec --no-startup-id "/home/omid/.scripts/brightness-change.sh - eDP1"
+bindsym XF86MonBrightnessUp exec --no-startup-id "/home/omid/.scripts/brightness-change.sh + DP1"
 
 # External Monitor
 #-------------------------------
-bindsym $mod1+F5 exec "/home/omid/.scripts/brightness-change.sh - DP-1"
-bindsym $mod1+F6 exec "/home/omid/.scripts/brightness-change.sh + DP-1"
+bindsym Shift+XF86MonBrightnessDown exec "/home/omid/.scripts/brightness-change.sh - DP1"
+bindsym Shift+XF86MonBrightnessUp exec "/home/omid/.scripts/brightness-change.sh + DP1"
 
 # Arandr Configs
 #-------------------------------
-bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
+bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
 #HDMI (2) modes
 #-------------------------------
-bindsym $alt+Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore
-bindsym $alt+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP-1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore
+bindsym $mod2+Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore"
+bindsym $mod2+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --primary --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 #Display Port (DP1) modes
 #-------------------------------
-bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP-1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
-bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off; nitrogen --force-setter=xinerama --restore
+bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
+bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
 
 # Icons of the workspaces
 #-------------------------------
@@ -122,6 +126,7 @@ set $ws8    "8:  "
 # workspaces/containers control
 #-------------------------------
 bindsym $mod1+Tab workspace next
+bindsym $mod1+Escape workspace prev
 bindsym $mod2+Ctrl+Right workspace next
 bindsym $mod2+Ctrl+Left workspace prev
 
@@ -135,12 +140,12 @@ focus_follows_mouse no
 
 # window border settings
 #-------------------------------
-default_border          pixel 1
-default_floating_border pixel 2
+default_border          pixel 2
+default_floating_border pixel 4
 
 # hiding borders adjacent to the screen edges
 #-------------------------------
-hide_edge_borders both
+hide_edge_borders smart_no_gaps
 
 # set popups during fullscreen mode
 #-------------------------------
@@ -157,6 +162,7 @@ bindsym $mod2+space exec  --no-startup-id --no-startup-id rofi -show drun
 # switching window with alt+tab
 #-------------------------------
 bindsym $mod2+Tab focus right
+bindsym $mod2+Escape focus left
 
 # kill focused window
 #-------------------------------
@@ -211,7 +217,7 @@ bindsym Ctrl+space floating toggle
 
 # change focus between tiling / floating windows
 #-------------------------------
-bindsym $mod2+f focus mode_toggle
+bindsym $mod2+a focus mode_toggle
 
 # focus the parent container
 #-------------------------------
@@ -269,34 +275,6 @@ bindsym XF86AudioLowerVolume     exec --no-startup-id amixer -q -D pulse sset Ma
 bindsym XF86AudioRaiseVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
 bindsym XF86AudioMute            exec --no-startup-id amixer -q -D pulse sset Master toggle
 
-# resize window
-#-------------------------------
-# fast-resize
-#-------------------------------
-bindsym $mod1+0 resize shrink  width 10 px or 10 ppt
-bindsym $mod1+9 resize grow    width 10 px or 10 ppt
-# resize-mode
-#-------------------------------
-bindsym $mod1+r mode "  "
-mode "  " {
-    # pressing left and up will shrink the window's width and height
-    # pressing right and down will grow the window's width and height
-    bindsym $left   resize shrink width 10 px or 10 ppt
-    bindsym $down   resize grow height 10 px or 10 ppt
-    bindsym $up     resize shrink height 10 px or 10 ppt
-    bindsym $right  resize grow width 10 px or 10 ppt
-
-    # same bindings, but for the arrow keys
-    bindsym Left    resize shrink width 10 px or 10 ppt
-    bindsym Down    resize grow height 10 px or 10 ppt
-    bindsym Up      resize shrink height 10 px or 10 ppt
-    bindsym Right   resize grow width 10 px or 10 ppt
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 # set specific windows to floating mode
 #-------------------------------
 for_window [class="floatkitty"]                     floating enable
@@ -336,6 +314,7 @@ for_window [window_role="Preferences"]              floating enable
 assign [class="google-chrome"]                      → $ws3
 assign [class="dolphin"]                            → $ws4
 assign [class="jetbrains-webstorm"]                 → $ws2
+assign [class="jetbrains-pycharm-ce"]               → $ws1
 
 # class                  border  backgr  text  indicator child_border
 #--------------------------------------------------------------------
@@ -354,15 +333,15 @@ bar {
     bindsym button4         nop
     bindsym button5         nop
     position                bottom
-    #tray_output             primary
+    tray_output             primary
     #separator_symbol        ""
     workspace_buttons       yes
     strip_workspace_numbers no
 
     colors {
-        background  #F2F2F2
-        statusline  #dddddd
-        separator   #666666
+        background          #ffffff
+        statusline          #dddddd
+        separator           #666666
         # class             border  backgr. text
         focused_workspace   #1685DF #1685DF #000000
         active_workspace    #212121 #212121 #000000
@@ -372,44 +351,13 @@ bar {
     }
 }
 
-# Enter the gap mode
+# Gap Controls
 #-------------------------------
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod1+g mode "$mode_gaps_outer"
-bindsym $mod1+Shift+g mode "$mode_gaps_inner"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+gaps outer 25
+smart_gaps inverse_outer
+workspace $ws3 gaps outer 0
+bindsym $mod1+b gaps outer current toggle 25
+bindsym $mod1+s gaps outer current toggle 100
 
 # restart i3 inplace
 #-------------------------------

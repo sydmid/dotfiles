@@ -8,7 +8,7 @@ general {
         color_bad = '#ba5e57'
 }
 
-order += "cpu_usage"
+#order += "cpu_usage"
 #order += "cpu_temperature 0"
 #order += "disk /"
 #order += "ethernet enp1s0"

@@ -6,12 +6,11 @@
 # startup applications
 #-------------------------------
 exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec              --no-startup-id xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore
+exec              --no-startup-id sleep 1; xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore
 exec              --no-startup-id nm-applet
 exec              --no-startup-id clipit
 exec              --no-startup-id crow
 exec              --no-startup-id unclutter -grab
-exec              --no-startup-id sbxkb
 exec              --no-startup-id setxkbmap -option caps:ctrl_modifier
 exec              --no-startup-id xcape -e Caps_Lock=Escape
 exec              --no-startup-id sed -i "s/export SSSession='.*'/export SSSession='General'/" $HOME/.scripts/persistentStorage.sh
@@ -93,7 +92,7 @@ bindsym $mod1+Ctrl+m exec pavucontrol
 # Brightness
 #-------------------------------
 bindsym XF86MonBrightnessDown exec --no-startup-id "/home/omid/.scripts/brightness-change.sh - eDP1"
-bindsym XF86MonBrightnessUp exec --no-startup-id "/home/omid/.scripts/brightness-change.sh + DP1"
+bindsym XF86MonBrightnessUp exec --no-startup-id "/home/omid/.scripts/brightness-change.sh + eDP1"
 
 # External Monitor
 #-------------------------------
@@ -103,10 +102,12 @@ bindsym Shift+XF86MonBrightnessUp exec "/home/omid/.scripts/brightness-change.sh
 # Arandr Configs
 #-------------------------------
 bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
+
 #HDMI (2) modes
 #-------------------------------
-bindsym $mod2+Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore"
-bindsym $mod2+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --primary --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
+bindsym $mod1+trl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore"
+bindsym $mod1+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --primary --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
+
 #Display Port (DP1) modes
 #-------------------------------
 bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
@@ -140,8 +141,8 @@ focus_follows_mouse no
 
 # window border settings
 #-------------------------------
-default_border          pixel 2
-default_floating_border pixel 4
+default_border          normal
+default_floating_border pixel 3
 
 # hiding borders adjacent to the screen edges
 #-------------------------------
@@ -239,14 +240,6 @@ bindsym $mod1+minus scratchpad show
 #-------------------------------
 bindsym $mod1+Shift+m move position mouse
 
-# set a window to stick to the glass
-#-------------------------------
-bindsym $mod1+Shift+s sticky toggle
-
-# sticky preview for media
-#-------------------------------
-bindsym $mod1+Shift+p fullscreen disable; floating enable; resize set 350 px 197 px; sticky enable; move window to position 1006 px 537 px
-
 # switch to workspace
 #-------------------------------
 bindsym $mod1+1 workspace $ws1
@@ -277,7 +270,7 @@ bindsym XF86AudioMute            exec --no-startup-id amixer -q -D pulse sset Ma
 
 # set specific windows to floating mode
 #-------------------------------
-for_window [class="floatkitty"]                     floating enable
+for_window [class="floatkitty"]                     floating enable, border pixel 3
 for_window [title="alsamixer"]                      floating enable
 for_window [title="File Transfer*"]                 floating enable
 for_window [title="i3_help"]                        floating enable sticky enable
@@ -329,7 +322,7 @@ client.background       #2B2C2B
 #-------------------------------
 bar {
     i3bar_command           i3bar
-    status_command          i3status
+    status_command          i3blocks
     bindsym button4         nop
     bindsym button5         nop
     position                bottom
@@ -353,11 +346,13 @@ bar {
 
 # Gap Controls
 #-------------------------------
-gaps outer 25
-smart_gaps inverse_outer
-workspace $ws3 gaps outer 0
+gaps outer 100
+bindsym $mod1+p layout splith; gaps top current set 80; gaps bottom current set 80
+bindsym $mod1+Shift+p layout tabbed; gaps top current set 80; gaps bottom current set 80
 bindsym $mod1+b gaps outer current toggle 25
 bindsym $mod1+s gaps outer current toggle 100
+bindsym $mod1+0 gaps outer current set 0
+
 
 # restart i3 inplace
 #-------------------------------

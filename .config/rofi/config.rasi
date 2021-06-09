@@ -1,7 +1,7 @@
 configuration {
     lines: 8;
     font: "System San Francisco Display 18";
-    show-icons: true;
+    show-icons: false;
     theme: "blue";
     display-window: "Window";
     display-drun: "Search";

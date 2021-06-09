@@ -77,9 +77,9 @@ esss() {
 
 # DropboxSync
 drops() {
-  rsync -av --delete /home/omid/Documents/syncthing /home/omid/gksy\ Dropbox/syncbooks;
-  rsync -av --delete /home/omid/Documents/_saved_pages /home/omid/gksy\ Dropbox/syncpages;
-  rsync -av --delete /home/omid/Downloads/WEB_CLIPS /home/omid/gksy\ Dropbox/WEB_CLIPS;
+  rsync -av --delete /home/omid/Documents/syncthing/ /home/omid/Dropbox/gksy\'s\ shared\ workspace/syncbooks/;
+  rsync -av --delete /home/omid/Documents/_saved_pages/ /home/omid/Dropbox/gksy\'s\ shared\ workspace/syncpages/;
+  rsync -av --delete /home/omid/Downloads/WEB_CLIPS/ /home/omid/Dropbox/gksy\'s\ shared\ workspace/WEB_CLIPS/;
 }
 
 # Pacman Usefull Aliases

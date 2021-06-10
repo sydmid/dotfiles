@@ -8,6 +8,8 @@
 exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec              --no-startup-id sleep 1; xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore
 exec              --no-startup-id nm-applet
+exec              --no-startup-id blueman-applet
+exec              --no-startup-id ~/.scripts/bt_keyboard_connect
 exec              --no-startup-id clipit
 exec              --no-startup-id crow
 exec              --no-startup-id unclutter -grab
@@ -17,6 +19,7 @@ exec              --no-startup-id sed -i "s/export SSSession='.*'/export SSSessi
 exec              --no-startup-id imwheel -b 45
 exec              --no-startup-id sleep 2; start_conky_custom1
 exec_always       --no-startup-id xautolock -time 10 -locker blurlock
+exec_always       --no-startup-id setxkbmap -option caps:ctrl_modifier; xmodmap -e "keycode 169 = Print"
 exec_always       --no-startup-id nm-applet
 exec_always       --no-startup-id lxpolkit
 exec_always       --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
@@ -267,6 +270,9 @@ bindsym $mod1+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym XF86AudioLowerVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
 bindsym XF86AudioRaiseVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
 bindsym XF86AudioMute            exec --no-startup-id amixer -q -D pulse sset Master toggle
+bindsym Shift+F11                exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
+bindsym Shift+F12                exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
+bindsym Shift+F10                exec --no-startup-id amixer -q -D pulse sset Master toggle
 
 # set specific windows to floating mode
 #-------------------------------

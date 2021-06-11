@@ -1,8 +1,12 @@
 configuration {
-    lines: 8;
-    font: "System San Francisco Display 18";
-    show-icons: false;
-    theme: "blue";
-    display-window: "Window";
-    display-drun: "Search";
+  combi-modi: "window,drun,run,file-browser-extended";
+  font: "System San Francisco Display 18";
+  modi: "combi,file-browser-extended";
+  show-icons: false;
+  lines: 8;
+  display-drun: " App";
+  display-window: " Window";
+  display-run: " Run";
 }
+
+@theme "./themes/theme.rasi"

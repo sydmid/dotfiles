@@ -1,8 +1,17 @@
-#currentSession=$(grep "SSSession='.*'" $HOME/.scripts/persistentStorage.sh | sed --expression "s/export SSSession='//g" | sed --expression "s/'//g") &&
-#subSession=$(echo "Enter your desired sub-session name (Current session-name is: $currentSession)" | dmenu) &&
-#/usr/bin/maim -m 1 -u | /usr/bin/convert - -resize 50% -define jpeg:dct-method=float -quality 80 ~/Pictures/${currentSession}_${subSession}_$(date '+%F_%H:%M:%S').jpeg &&
-#echo "${currentSession}_${subSession}_$(date '+%F_%H:%M:%S').jpeg saved" | xargs -I {} dunstify {}
+to_open=$(printf "index\nss" | rofi -dmenu) &&
+case $to_open in
 
-ls=$(eval 'ls')
-Category=$(echo "omid, omid" | rofi -dmenu) &&
-echo "You have chosen ${Category}"
+  index)
+    rofi -show file-browser-extended [ -file-browser-dir /home/omid/Pictures/Index ]
+    ;;
+
+  ss)
+    rofi -show file-browser-extended [ -file-browser-dir /home/omid/Pictures/SS ]
+    ;;
+
+  *)
+    echo -n "unknown"
+    ;;
+esac
+
+

@@ -25,6 +25,7 @@ exec_always       --no-startup-id lxpolkit
 exec_always       --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
 exec_always       --no-startup-id picom
 exec_always       --no-startup-id fix_xcursor
+exec_always       --no-startup-id $HOME/.config/polybar/launch.sh
 
 # shortcut applications
 #-------------------------------
@@ -34,7 +35,7 @@ bindsym $mod1+backslash             exec --no-startup-id tdrop --y-offset=1%  -w
 bindsym $mod1+e                     workspace $ws4; exec dolphin /home/omid
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat -class=float leafpad
 bindsym $mod1+Shift+b               exec --no-startup-id blurlock
-
+bindsym $mod1+space                 exec --no-startup-id --no-startup-id $HOME/.scripts/ssmanage/ssmenu.sh
 # Print screens
 #-------------------------------
 bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ssmanage/noselectionNOSUB.sh
@@ -162,6 +163,7 @@ bindsym $mod1+t exec --no-startup-id urxvt
 # start a program launcher
 #-------------------------------
 bindsym $mod2+space exec  --no-startup-id --no-startup-id rofi -show drun
+
 
 # switching window with alt+tab
 #-------------------------------
@@ -324,31 +326,6 @@ client.urgent           #CB4B16 #FDF6E3 #42a5f5 #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #2B2C2B
 
-# start i3bar to display a workspace bar
-#-------------------------------
-bar {
-    i3bar_command           i3bar
-    status_command          i3blocks
-    bindsym button4         nop
-    bindsym button5         nop
-    position                bottom
-    tray_output             primary
-    #separator_symbol        ""
-    workspace_buttons       yes
-    strip_workspace_numbers no
-
-    colors {
-        background          #ffffff
-        statusline          #dddddd
-        separator           #666666
-        # class             border  backgr. text
-        focused_workspace   #1685DF #1685DF #000000
-        active_workspace    #212121 #212121 #000000
-        inactive_workspace  #212121 #212121 #86888c
-        urgent_workspace    #d64e4e #d64e4e #000000
-        binding_mode        #229c56 #229c56 #000000
-    }
-}
 
 # Gap Controls
 #-------------------------------

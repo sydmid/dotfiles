@@ -87,3 +87,8 @@ alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bi
 pacdeps() {
   LC_ALL=C pacman -Si $1 | awk -F'[:<=>]' '/^Depends/ {print $2}' | xargs -n1 | sort -u
 }
+
+# SS Archieving
+ssarch() {
+    python $HOME/.scripts/ssmanage/ss.py index
+}

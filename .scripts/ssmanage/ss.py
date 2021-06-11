@@ -122,17 +122,6 @@ def make_backup_permanent():
         pass
 
 
-def get_month():
-    str1 = ''
-    with os.scandir(INDEX_ROOT) as entries:
-        for entry in entries:
-            str1 = str1 + f"{entry.name}\n"
-    sys.stdout.write(str1)
-
-def open_index_folder():
-    with os.
-    print(sys.stdin.read())
-
 def index():
     try:
         searchDict()
@@ -156,8 +145,6 @@ def index():
 
 operations_dict = {
     'index': index,
-    'get_month': get_month,
-    'openin': open_index_folder
 }
 
 

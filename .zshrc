@@ -90,5 +90,5 @@ pacdeps() {
 
 # SS Archieving
 ssarch() {
-    python $HOME/.scripts/ssmanage/ss.py index
+    python $HOME/.scripts/ssmanage/ss.py main
 }

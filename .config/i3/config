@@ -27,6 +27,7 @@ exec_always       --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
 exec_always       --no-startup-id picom
 exec_always       --no-startup-id fix_xcursor
 exec_always       --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always       --no-startup-id sleep 1; killall -HUP xbindkeys; xbindkeys
 
 
 # shortcut applications
@@ -37,7 +38,7 @@ bindsym $mod1+backslash             exec --no-startup-id tdrop --y-offset=1%  -w
 bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser-extended [ -file-browser-dir /home/omid ]
 bindsym $mod1+e                     workspace $ws4; exec dolphin /home/omid
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat -class=float leafpad
-bindsym $mod1+Shift+b               exec --no-startup-id blurlock
+#bindsym $mod1+Shift+b               exec --no-startup-id blurlock
 bindsym $mod1+space                 exec --no-startup-id --no-startup-id $HOME/.scripts/ssmanage/ssmenu.sh
 # Print screens
 #-------------------------------
@@ -117,7 +118,7 @@ bindsym $mod1+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --ou
 #-------------------------------
 bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
 bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
-
+bindsym Ctrl+Shift+4 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 
 # Icons of the workspaces
 #-------------------------------
@@ -169,8 +170,8 @@ bindsym $mod2+space exec  --no-startup-id --no-startup-id rofi -show drun
 
 # switching window with alt+tab
 #-------------------------------
-bindsym $mod2+Tab focus right
-bindsym $mod2+Escape focus left
+bindsym $mod2+Tab focus next
+bindsym $mod2+Escape focus prev
 
 # kill focused window
 #-------------------------------
@@ -206,8 +207,8 @@ bindsym $mod1+Shift+Right    move right
 
 # split in horizontal/vertical orientation
 #-------------------------------
-bindsym $mod1+v split v
-bindsym $mod1+Shift+v split h
+#bindsym $mod1+v split v
+#bindsym $mod1+Shift+v split h
 
 # enter fullscreen mode for the focused container
 #-------------------------------
@@ -337,12 +338,13 @@ client.background       #2B2C2B
 
 # Gap Controls
 #-------------------------------
-gaps outer 100
-bindsym $mod1+p layout splith; gaps top current set 80; gaps bottom current set 80
-bindsym $mod1+Shift+p layout tabbed; gaps top current set 80; gaps bottom current set 80
-bindsym $mod1+b gaps outer current toggle 25
-bindsym $mod1+s gaps outer current toggle 100
+gaps outer 50
+bindsym $mod1+b gaps outer current toggle 50
 bindsym $mod1+0 gaps outer current set 0
+bindsym $mod1+p layout splith; gaps top current set 50; gaps bottom current set 50; gaps left current set 0; gaps right current set 0
+bindsym $mod1+Shift+p layout tabbed; gaps top current set 50; gaps bottom current set 50; gaps left current set 50; gaps right current set 50
+bindsym $mod1+v layout splitv; gaps top current set 0; gaps bottom current set 0; gaps left current set 0; gaps right current set 0
+bindsym $mod1+Shift+v layout tabbed; gaps top current set 400; gaps bottom current set 400; gaps left current set 0; gaps right current set 0
 
 
 # restart i3 inplace

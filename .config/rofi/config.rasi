@@ -1,7 +1,7 @@
 configuration {
-  combi-modi: "window,drun,run,file-browser-extended";
+  combi-modi: "window,drun,run,file-browser-extended,keys";
   font: "System San Francisco Display 18";
-  modi: "combi,file-browser-extended";
+  modi: "combi,file-browser-extended,keys";
   show-icons: false;
   lines: 8;
   display-drun: " App";

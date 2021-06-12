@@ -192,7 +192,7 @@ label-focused-padding = 4
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-unfocused = %index%
+label-unfocused = %index%: %name%
 label-unfocused-padding = 4
 
 ; Available tokens:
@@ -201,7 +201,7 @@ label-unfocused-padding = 4
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-visible = %index%
+label-visible = %index%: %name%
 label-visible-underline = #555555
 label-visible-padding = 4
 
@@ -211,15 +211,15 @@ label-visible-padding = 4
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-urgent = %index%
+label-urgent = %index%: %name%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-padding = 4
 
 ; Separator in between workspaces
-label-separator = |
-label-separator-padding = 2
-label-separator-foreground = #1685DF
+;label-separator = |
+;label-separator-padding = 0
+;label-separator-foreground = #1685DF
 
 [module/line]
 type = custom/text

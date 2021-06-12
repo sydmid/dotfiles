@@ -3,6 +3,7 @@
 # License: MIT
 # i3 config file
 
+
 # startup applications
 #-------------------------------
 exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -27,29 +28,29 @@ exec_always       --no-startup-id picom
 exec_always       --no-startup-id fix_xcursor
 exec_always       --no-startup-id $HOME/.config/polybar/launch.sh
 
+
 # shortcut applications
 #-------------------------------
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
 bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
 bindsym $mod1+backslash             exec --no-startup-id tdrop --y-offset=1%  -w 48% -h 48% --x-offset=1%  -mat -n 2 --class=float kitty --class=floatkitty -e 'ranger'
+bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser-extended [ -file-browser-dir /home/omid ]
 bindsym $mod1+e                     workspace $ws4; exec dolphin /home/omid
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat -class=float leafpad
 bindsym $mod1+Shift+b               exec --no-startup-id blurlock
 bindsym $mod1+space                 exec --no-startup-id --no-startup-id $HOME/.scripts/ssmanage/ssmenu.sh
 # Print screens
 #-------------------------------
-bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ssmanage/noselectionNOSUB.sh
-bindsym $mod1+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/noselection.sh
-bindsym Shift+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/noselectionONLYSUB.sh
-bindsym Ctrl+Print                  --release exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-
+bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ssmanage/alternate.sh
+bindsym $mod1+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/normal.sh
+bindsym Ctrl+Print                  --release exec --no-startup-id /home/omid/.scripts/ssmanage/selection.sh
 # font for window titles and bar
 #-------------------------------
 font pango:System San Francisco Display 12
 
-# Showing Only app classes
+# Showing app class and title
 #-------------------------------
-for_window [class=".*"] title_format "%class"
+for_window [class=".*"] title_format "%class %title"
 
 # Containers Title alignment
 #-------------------------------
@@ -117,6 +118,7 @@ bindsym $mod1+Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --ou
 bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
 bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
 
+
 # Icons of the workspaces
 #-------------------------------
 set $ws1    "1:  "
@@ -127,6 +129,7 @@ set $ws5    "5:  "
 set $ws6    "6:  "
 set $ws7    "7:  "
 set $ws8    "8:  "
+
 
 # workspaces/containers control
 #-------------------------------
@@ -163,7 +166,6 @@ bindsym $mod1+t exec --no-startup-id urxvt
 # start a program launcher
 #-------------------------------
 bindsym $mod2+space exec  --no-startup-id --no-startup-id rofi -show drun
-
 
 # switching window with alt+tab
 #-------------------------------
@@ -245,6 +247,7 @@ bindsym $mod1+minus scratchpad show
 #-------------------------------
 bindsym $mod1+Shift+m move position mouse
 
+
 # switch to workspace
 #-------------------------------
 bindsym $mod1+1 workspace $ws1
@@ -255,6 +258,7 @@ bindsym $mod1+5 workspace $ws5
 bindsym $mod1+6 workspace $ws6
 bindsym $mod1+7 workspace $ws7
 bindsym $mod1+8 workspace $ws8
+
 
 # move focused container to workspace
 #-------------------------------
@@ -267,6 +271,7 @@ bindsym $mod1+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod1+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod1+Shift+8 move container to workspace $ws8; workspace $ws8
 
+
 # volume
 #-------------------------------
 bindsym XF86AudioLowerVolume     exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
@@ -276,9 +281,10 @@ bindsym Shift+F11                exec --no-startup-id amixer -q -D pulse sset Ma
 bindsym Shift+F12                exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
 bindsym Shift+F10                exec --no-startup-id amixer -q -D pulse sset Master toggle
 
+
 # set specific windows to floating mode
 #-------------------------------
-for_window [class="floatkitty"]                     floating enable, border pixel 3
+for_window [class="floatkitty"]                     floating enable, border pixel 2
 for_window [title="alsamixer"]                      floating enable
 for_window [title="File Transfer*"]                 floating enable
 for_window [title="i3_help"]                        floating enable sticky enable
@@ -310,12 +316,14 @@ for_window [window_role="task_dialog"]              floating enable
 for_window [window_role="bubble"]                   floating enable
 for_window [window_role="Preferences"]              floating enable
 
+
 # assign program to workspace
 #-------------------------------
 assign [class="google-chrome"]                      → $ws3
 assign [class="dolphin"]                            → $ws4
 assign [class="jetbrains-webstorm"]                 → $ws2
 assign [class="jetbrains-pycharm-ce"]               → $ws1
+
 
 # class                  border  backgr  text  indicator child_border
 #--------------------------------------------------------------------

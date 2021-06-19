@@ -8,4 +8,4 @@ export EDITOR="$VISUAL"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export WORKON_HOME=~/Documents/PyEnvs
+export WORKON_HOME=$HOME/.PyEnvs

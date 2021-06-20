@@ -18,7 +18,8 @@ alias res="sudo reboot now"
 # Apps
 alias v='nvim'
 alias vim=nvim
-alias sv="sudo nvim"
+alias sv="sudo -e"
+alias se="sudo -e"
 alias s='subl'
 alias r='ranger'
 alias g='git'
@@ -63,6 +64,14 @@ alias tmp='cd ~/Temporary && ls -lA'
 # Create a new directory and enter it
 mkd() {
     mkdir -p "$@" && cd "$@"
+}
+# Create a file and subl it
+tepy(){
+    touch "$HOME/Desktop/TestLab/py/$@.py" && subl "$HOME/Desktop/TestLab/py$@.py"
+}
+
+tejs(){
+    touch "$HOME/Desktop/TestLab/js/$@.js" && subl "$HOME/Desktop/TestLab/js$@.js"
 }
 
 # change screen shot session from persistent storage

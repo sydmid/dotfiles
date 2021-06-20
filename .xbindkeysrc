@@ -1,6 +1,0 @@
-"xte 'keydown Control_L' 'key Next'"
-    Control + F12 + release
-
-"xte 'keydown Control_L' 'key Prior'"
-    Control + F11 + release
-

@@ -17,9 +17,10 @@ exec              --no-startup-id unclutter -grab
 exec              --no-startup-id "sleep 1; setxkbmap -option caps:ctrl_modifier; xcape -e Caps_Lock=Escape"
 exec              --no-startup-id sed -i "s/export SSSession='.*'/export SSSession='General'/" $HOME/.scripts/persistentStorage.sh
 exec              --no-startup-id imwheel -b 45
+exec              --no-startup-id "sleep 2; clipmenud"
 exec              --no-startup-id "sleep 2; start_conky_custom1"
 exec              --no-startup-id "sleep 2; dunstctl set-paused true"
-#exec_always       --no-startup-id xautolock -time 10 -locker blurlock
+exec_always       --no-startup-id xautolock -time 10 -locker blurlock
 exec_always       --no-startup-id "setxkbmap -option caps:ctrl_modifier; xcape -e Caps_Lock=Escape; xmodmap -e 'keycode 169 = Print'"
 exec_always       --no-startup-id nm-applet
 exec_always       --no-startup-id lxpolkit
@@ -27,7 +28,7 @@ exec_always       --no-startup-id "sleep 1; nitrogen --restore; sleep 1; picom -
 exec_always       --no-startup-id picom
 exec_always       --no-startup-id fix_xcursor
 exec_always       --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always       --no-startup-id "sleep 1; killall sxhkd; sxhkd"
+exec_always       --no-startup-id "sleep 2; killall sxhkd; sxhkd"
 
 
 
@@ -35,14 +36,15 @@ exec_always       --no-startup-id "sleep 1; killall sxhkd; sxhkd"
 #-------------------------------
 bindsym $mod1+e                     exec dolphin /home/omid
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
-bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser-extended [ -file-browser-dir /home/omid ]
+bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser-extended [ -file-browser-dir /home/omid ] [ -file-browser-hide-parent ]
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat -class=float leafpad
 bindsym $mod1+c                     exec --no-startup-id tdrop --y-offset=30% -w 48% -h 48% --x-offset=26% -mat -class=float anki
 bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
 bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/ssmanage/ssmenu.sh
 bindsym $mod1+Ctrl+m                exec --no-startup-id pavucontrol
 bindsym $mod2+space                 exec --no-startup-id rofi -show drun
-#bindsym $mod1+Shift+b               exec --no-startup-id blurlock
+bindsym $mod2+v                     exec --no-startup-id CM_LAUNCHER=rofi clipmenu -i && xdotool type "$(xclip -o -selection clipboard)"
+bindsym $mod1+Ctrl+b                exec --no-startup-id blurlock
 # Print screens
 #-------------------------------
 bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ssmanage/alternate.sh

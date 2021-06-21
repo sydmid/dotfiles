@@ -6,4 +6,3 @@ ctrl + super + @{Left}
 
 ctrl + @{BackSpace}
     xdotool key --clearmodifiers Delete
-

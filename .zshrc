@@ -13,6 +13,8 @@ alias de="deactivate"
 alias src="source ~/.zshrc"
 alias upgrade="sudo pacman -Syu"
 alias shut="sudo shutdown now"
+alias pmans="sudo pacman -S"
+alias pmancrcns="sudo pacman -Rcns"
 alias res="sudo reboot now"
 
 # Apps

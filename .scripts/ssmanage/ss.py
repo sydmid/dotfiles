@@ -53,7 +53,7 @@ def searchDict():
     print('Searching for new screenshots ...')
     with os.scandir(DIR_PATH) as entries:
         for entry in entries:
-            date_pattern = r'_(\d|-|_)+_(\d|:)+'
+            date_pattern = r'_\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2}'
             result = re.search(date_pattern, entry.name)
             if result:
                 name_date_part = result.group(0)[1:]
@@ -85,7 +85,7 @@ def move_to_ss():
             os.mkdir(path_to_create)
 
         for filename in filenames:
-            date_pattern = r'_(\d|-|_)+_(\d|:)+'
+            date_pattern = r'_\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2}'
             date_part = re.search(date_pattern, filename).group(0)
             date_strip_part = re.search(date_pattern, filename).group(0)[1:]
 

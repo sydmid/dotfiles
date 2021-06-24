@@ -234,6 +234,16 @@
 				]
 			]
 		},
+		"/home/omid/.config/kservicemenurc":
+		{
+			"0x5b044a05":
+			[
+				[
+					95,
+					95
+				]
+			]
+		},
 		"/home/omid/.config/leafpad/leafpadrc":
 		{
 			"0x3a0fabe7":
@@ -454,23 +464,63 @@
 				]
 			]
 		},
-		"/home/omid/.dotfiles/.gitmodules":
+		"/home/omid/.config/zsh/.zshenv":
 		{
-			"0x8d5aa884":
+			"0xa27e7cf0":
 			[
 				[
-					377,
-					377
+					734,
+					734
+				]
+			]
+		},
+		"/home/omid/.config/zsh/.zshrc":
+		{
+			"0x5d9d58f6":
+			[
+				[
+					4691,
+					4691
+				]
+			]
+		},
+		"/home/omid/.dotfiles/.gitmodules":
+		{
+			"0x8b0f04ac":
+			[
+				[
+					425,
+					425
 				]
 			]
 		},
 		"/home/omid/.dotfiles/install.sh":
 		{
-			"0xa01bfea5":
+			"0xed57ca00":
 			[
 				[
-					265,
-					265
+					768,
+					768
+				]
+			]
+		},
+		"/home/omid/.dotfiles/zsh/.config/zsh/.zshenv":
+		{
+			"0xa27e7cf0":
+			[
+				[
+					707,
+					707
+				]
+			]
+		},
+		"/home/omid/.dotfiles/zsh/.config/zsh/.zshrc":
+		{
+			"0xccbebf69":
+			[
+				[
+					2933,
+					2933
 				]
 			]
 		},
@@ -524,13 +574,23 @@
 				]
 			]
 		},
+		"/home/omid/.nbrc":
+		{
+			"0x47aaa9e7":
+			[
+				[
+					509,
+					483
+				]
+			]
+		},
 		"/home/omid/.profile":
 		{
 			"0x58f48855":
 			[
 				[
-					111,
-					111
+					54,
+					54
 				]
 			]
 		},
@@ -758,6 +818,16 @@
 				]
 			]
 		},
+		"/home/omid/.zprofile":
+		{
+			"0x0":
+			[
+				[
+					0,
+					0
+				]
+			]
+		},
 		"/home/omid/.zshrc":
 		{
 			"0x9f0557f3":
@@ -899,6 +969,16 @@
 				[
 					463,
 					463
+				]
+			]
+		},
+		"/home/omid/Desktop/my-old-zshrc":
+		{
+			"0x6f577094":
+			[
+				[
+					2908,
+					2908
 				]
 			]
 		},

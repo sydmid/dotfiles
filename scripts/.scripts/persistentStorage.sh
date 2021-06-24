@@ -1,1 +1,1 @@
-export SSSession='python'
+export SSSession='General'

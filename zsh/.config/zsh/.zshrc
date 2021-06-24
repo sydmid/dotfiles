@@ -61,29 +61,101 @@ bindkey -M vicmd 'V' edit-command-line
 #}}}
 
 #{{{ Aliases
-alias ...='cd ../..'
-alias cpstat='rsync -haP'
-alias datea='date +%F'
-alias g='git'
-alias d='sudo docker'
-alias grep='grep --color=auto'
-alias ip='ip -c'
-alias la='exa --long --git --group --classify --all'
-alias l='exa --long --git --group --classify'
-alias ls='ls --color=auto'
-alias pacu='pikaur -Syu'
-alias :q='exit'
-alias del='trash'
-alias ssh-public-key='cat ~/.ssh/id_rsa.pub'
-alias vim='nvim'
-alias whoneeds='pacman -Qi'
-alias T="$TERMCMD 2>&1 > /dev/null &!"
-alias o="rifle"
-alias mdstat='cat /proc/mdstat'
 
-export CLASSPATH=".:$HOME/.local/lib/antlr-4.7.2-complete.jar:$CLASSPATH"
-alias antlr4='java -Xmx500M -cp "$HOME/.local/lib/antlr-4.7.2-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
-alias grun='java -Xmx500M -cp "$HOME/.local/lib/antlr-4.7.2-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
+alias gitup="git pull --recurse-submodules"
+alias dotup="cd $HOME/.dotfiles/ && sh ./install.sh && cd $HOME"
+alias src="source $HOME/.config/zsh/.zshrc"
+alias shut="sudo shutdown now"
+alias res="sudo reboot now"
+alias v='nvim'
+alias vim=nvim
+alias sv="sudo -e"
+alias se="sudo -e"
+alias s='subl'
+alias r='ranger'
+alias g='git'
+alias composeup="docker-compose -f ~/docker-compose.yml up -d"
+alias scr="cd $HOME/.scripts"
+alias python='python3'
+alias zshrc="nvim $HOME/.config/zsh/.zshrc"
+alias config='/usr/bin/git --git-dir=/home/omid/.cfg/ --work-tree=/home/omid'
+alias grep='grep --color=auto'
+alias ...='cd ../..'
+alias :q='exit'
+alias off='xset dpms force off'
+alias fdir='find . -type d -name'
+alias ff='find . -type f -name'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias ln='ln -iv'
+alias mkdir='mkdir -v'
+alias rm='rm -i'
+alias p='ps axo pid,user,pcpu,comm'
+# no user group, no color
+alias l="ls -oGh"
+# direcotry first color
+alias ls="ls --group-directories-first --color=auto"
+alias lsa="ls --group-directories-first --color=auto --all"
+# Order by last modified, long form no user group, color
+alias lt="ls -toG"
+# List all except . and ..., color, mark file types, long form no user group, file size
+alias la="ls -AGFoh"
+# List all except . and ..., color, mark file types, long form no use group, order by last modified, file size
+alias lat="ls -AGFoth"
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+# Copy ssh public key
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
+
 #}}}
 
 # vim:foldmethod=marker
+
+# Pyhton
+source /home/omid/.local/bin/virtualenvwrapper.sh
+alias de="deactivate"
+
+
+# Create a new directory and enter it
+mkd() {
+    mkdir -p "$@" && cd "$@"
+}
+# Create a file and subl it
+tepy(){
+    touch "$HOME/Desktop/TestLab/py/$@.py" && subl "$HOME/Desktop/TestLab/py$@.py"
+}
+
+tejs(){
+    touch "$HOME/Desktop/TestLab/js/$@.js" && subl "$HOME/Desktop/TestLab/js$@.js"
+}
+
+# change screen shot session from persistent storage
+sss() {
+    sed -i "s/export SSSession='.*'/export SSSession='$@'/" $HOME/.scripts/persistentStorage.sh
+}
+
+# get current SSSession
+esss() {
+    grep "SSSession='.*'" ./.scripts/persistentStorage.sh | sed --expression "s/export SSSession='//g" | sed --expression "s/'//g"
+}
+
+# DropboxSync
+drops() {
+  rsync -av --delete /home/omid/Documents/syncthing/ /home/omid/Dropbox/gksy\'s\ shared\ workspace/syncbooks/;
+  rsync -av --delete /home/omid/Downloads/WEB_CLIPS/ /home/omid/Dropbox/gksy\'s\ shared\ workspace/WEB_CLIPS/;
+}
+
+# Pacman Usefull Aliases
+alias whoneeds="pacman -Qi"
+alias upgrade="sudo pacman -Syu"
+alias pmans="sudo pacman -S"
+alias pmanr="sudo pacman -Rcns"
+alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+pacdeps() {
+  LC_ALL=C pacman -Si $1 | awk -F'[:<=>]' '/^Depends/ {print $2}' | xargs -n1 | sort -u
+}
+
+# SS Archieving
+ssarch() {
+    python $HOME/.scripts/ssmanage/ss.py main
+}

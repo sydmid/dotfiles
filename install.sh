@@ -24,7 +24,7 @@ stow --adopt -vSt "$HOME" --no-folding scripts
 stow --adopt -vSt "$HOME"              vscode
 stow --adopt -vSt "$HOME"              xdg
 stow --adopt -vSt "$HOME" --no-folding zsh
-stow --adopt -vSt "$HOME"              sublime3
+stow --adopt -vSt "$HOME" --no-folding sublime3
 stow --adopt -vSt "$HOME"              sxhkd
 stow --adopt -vSt "$HOME"              mpv
 stow --adopt -vSt "$HOME"              dolphin

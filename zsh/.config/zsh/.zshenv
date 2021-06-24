@@ -4,8 +4,8 @@ fpath=(~/.zsh-plugins/zsh-completions/src $fpath)
 
 export EDITOR='nvim'
 export PAGER='less'
-export BROWSER='firefox'
-export TERMCMD='alacritty'
+export BROWSER='google-chrome-stable'
+export TERM='kitty'
 export QT_QPA_PLATFORMTHEME='gtk2'
 
 export FZF_CTRL_T_COMMAND='fd --type f --hidden --exclude .git --exclude .cache'
@@ -31,4 +31,3 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export GOPATH="$XDG_DATA_HOME/go"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
-export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"

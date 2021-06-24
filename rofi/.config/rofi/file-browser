@@ -1,0 +1,9 @@
+oc-cmd     "webstorm;name:webstorm;icon:webstorm"
+oc-cmd     "pycharm;name:pycharm;icon:pycharm"
+oc-cmd     "subl;name:subl;icon:sublime-text"
+oc-cmd     "dolphin;name:open;icon:dolphin"
+oc-cmd     "mpv;name:mpv;icon:mpv"
+follow-symlinks
+depth      1
+show-hidden
+open-parent-as-self

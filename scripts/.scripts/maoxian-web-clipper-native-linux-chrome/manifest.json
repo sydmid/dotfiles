@@ -1,0 +1,7 @@
+{
+  "name": "maoxian_web_clipper_native",
+  "description": "Native aplication of maoxian web clipper",
+  "path": "APP_PATH",
+  "type": "stdio",
+  "allowed_origins": [ "chrome-extension://kjahokgdcbohofgdidndeiaigkehdjdc/" ]
+}

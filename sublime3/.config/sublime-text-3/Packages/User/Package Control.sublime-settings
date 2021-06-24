@@ -1,0 +1,48 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Anaconda",
+		"AutoDocstring",
+		"AutoFoldCode",
+		"Babel",
+		"Color Highlighter",
+		"Dockerfile Syntax Highlighting",
+		"DotENV",
+		"Emmet",
+		"ERB Snippets",
+		"Gist",
+		"GitGutter",
+		"Gutter Color",
+		"Highlight Duplicates",
+		"HTML5",
+		"Hyperion for gettext",
+		"INI",
+		"Jinja2",
+		"MarkdownEditing",
+		"nginx",
+		"Package Control",
+		"PackageDev",
+		"Predawn",
+		"Rainglow",
+		"SCSS",
+		"SideBarEnhancements",
+		"Smart Title Case",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-csslint",
+		"SublimeLinter-flake8",
+		"SublimeLinter-html-tidy",
+		"SublimeLinter-jshint",
+		"SublimeLinter-json",
+		"SublimeLinter-pycodestyle",
+		"SublimeLinter-shellcheck",
+		"Terminus",
+		"Theme - Spacegray"
+	]
+}

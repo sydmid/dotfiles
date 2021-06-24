@@ -1,0 +1,30 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "workbench.colorTheme": "Blueberry dark theme",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "liveServer.settings.donotVerifyTags": true,
+  "git.enableSmartCommit": true,
+  "window.openFoldersInNewWindow": "on",
+  "window.openFilesInNewWindow": "on",
+  "window.titleBarStyle": "native",
+  "editor.fontSize": 15,
+  "editor.fontFamily": "Operator Mono Lig",
+  "workbench.startupEditor": "newUntitledFile",
+  "files.autoSave": "afterDelay",
+  "terminal.integrated.fontSize": 12,
+  "[Log]": {
+    "editor.fontSize": 12
+  },
+  "window.menuBarVisibility": "compact",
+  "workbench.editor.enablePreview": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "window.zoomLevel": -1
+}

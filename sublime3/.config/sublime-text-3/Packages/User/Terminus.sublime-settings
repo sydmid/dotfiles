@@ -1,0 +1,16 @@
+{
+    "view_settings": {
+        "font_face": "sono",
+        "font_size": 12
+    },
+    "debug": true,
+    "shell_configs": [
+        {
+            "name": "Zsh",
+            "cmd": ["zsh", "-i", "-l"],
+            "env": {},
+            "enable": true,
+            "platforms": ["linux"]
+        }
+    ],
+}

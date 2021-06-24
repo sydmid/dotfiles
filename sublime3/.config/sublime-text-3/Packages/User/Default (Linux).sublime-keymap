@@ -1,0 +1,40 @@
+[
+{
+        "keys": ["alt+`"], "command": "show_panel", "args": {"panel": "console", "toggle": true}
+},
+{
+        "keys": ["ctrl+`"], "command": "toggle_terminus_panel", "args": {
+            "cwd": "${file_path:${folder}}"
+                                                                        }
+},
+{ "keys": ["ctrl+shift+s"], "command": "auto_save" },
+{ "keys": ["ctrl+b"], "command": "toggle_side_bar" },
+{ "keys": ["ctrl+f5"], "command": "build" },
+{ "keys": ["ctrl+d"], "command": "toggle_distraction_free" },
+{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+{ "keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+{ "keys": ["f12"], "command": "goto_definition" },
+{ "keys": ["shift+f12"], "command": "goto_reference" },
+{ "keys": ["alt+left"], "command": "jump_back" },
+{ "keys": ["alt+right"], "command": "jump_forward" },
+    {
+        "keys": ["alt+1"],
+        "command": "set_layout",
+        "args":
+        {
+            "cols": [0.0, 1.0],
+            "rows": [0.0, 1.0],
+            "cells": [[0, 0, 1, 1]]
+        }
+    },
+    {
+        "keys": ["alt+2"],
+        "command": "set_layout",
+        "args":
+        {
+            "cols": [0.0, 0.5, 1.0],
+            "rows": [0.0, 1.0],
+            "cells": [[0, 0, 1, 1], [1, 0, 2, 1]]
+        }
+    },
+]

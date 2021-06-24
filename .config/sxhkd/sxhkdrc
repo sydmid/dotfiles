@@ -1,8 +1,0 @@
-ctrl + super + @{Right}
-    xdotool key --clearmodifiers control+Next
-
-ctrl + super + @{Left}
-    xdotool key --clearmodifiers control+Prior
-
-ctrl + @{BackSpace}
-    xdotool key --clearmodifiers Delete

@@ -1,1 +1,1 @@
-export SSSession='General'
+export SSSession='kubernetes'

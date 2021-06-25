@@ -176,11 +176,11 @@
 		},
 		"/home/omid/.config/i3/config":
 		{
-			"0x57598b63":
+			"0xe872b03e":
 			[
 				[
-					1596,
-					1596
+					3903,
+					3903
 				]
 			]
 		},
@@ -404,6 +404,16 @@
 				]
 			]
 		},
+		"/home/omid/.config/sublime-text-3/Packages/User/Markdown.sublime-settings":
+		{
+			"0xaa4ebaa8":
+			[
+				[
+					128,
+					128
+				]
+			]
+		},
 		"/home/omid/.config/sublime-text-3/Packages/User/Package Control.sublime-settings":
 		{
 			"0xf8f55ad3":
@@ -419,8 +429,8 @@
 			"0x4c55ae2a":
 			[
 				[
-					177,
-					177
+					63,
+					63
 				]
 			]
 		},
@@ -429,8 +439,8 @@
 			"0xa9087c9f":
 			[
 				[
-					809,
-					809
+					62,
+					67
 				]
 			]
 		},
@@ -476,11 +486,81 @@
 		},
 		"/home/omid/.config/zsh/.zshrc":
 		{
-			"0x5d9d58f6":
+			"0x5bc5e2da":
 			[
 				[
-					4691,
-					4691
+					5242,
+					5246
+				]
+			]
+		},
+		"/home/omid/.config/zsh/plugins/git-prompt.zsh/examples/compact.zsh":
+		{
+			"0x2da3c707":
+			[
+				[
+					0,
+					0
+				]
+			]
+		},
+		"/home/omid/.config/zsh/plugins/git-prompt.zsh/examples/default.zsh":
+		{
+			"0xd2fbc764":
+			[
+				[
+					0,
+					0
+				]
+			]
+		},
+		"/home/omid/.config/zsh/plugins/git-prompt.zsh/examples/pure.zsh":
+		{
+			"0xdb04068c":
+			[
+				[
+					0,
+					0
+				]
+			]
+		},
+		"/home/omid/.config/zsh/plugins/git-prompt.zsh/examples/rprompt.zsh":
+		{
+			"0xc6c91dc3":
+			[
+				[
+					908,
+					908
+				]
+			]
+		},
+		"/home/omid/.config/zsh/plugins/git-prompt.zsh/examples/wprompt.zsh":
+		{
+			"0xe4257e02":
+			[
+				[
+					2900,
+					2900
+				]
+			]
+		},
+		"/home/omid/.config/zsh/plugins/git-prompt.zsh/git-prompt.zsh":
+		{
+			"0x68f03807":
+			[
+				[
+					2848,
+					2848
+				]
+			]
+		},
+		"/home/omid/.config/zsh/plugins/wbase.zsh/wbase.zsh":
+		{
+			"0xa44f8d85":
+			[
+				[
+					1794,
+					1799
 				]
 			]
 		},
@@ -529,8 +609,8 @@
 			"0xfead631c":
 			[
 				[
-					382,
-					382
+					308,
+					308
 				]
 			]
 		},
@@ -589,8 +669,8 @@
 			"0x58f48855":
 			[
 				[
-					54,
-					54
+					312,
+					312
 				]
 			]
 		},
@@ -723,8 +803,8 @@
 			"0xd5dd1ce4":
 			[
 				[
-					305,
-					305
+					309,
+					309
 				]
 			]
 		},
@@ -765,6 +845,16 @@
 				[
 					8,
 					8
+				]
+			]
+		},
+		"/home/omid/.scripts/ssmanage/retired.sh":
+		{
+			"0x1c16aab8":
+			[
+				[
+					417,
+					417
 				]
 			]
 		},
@@ -1112,6 +1202,16 @@
 				]
 			]
 		},
+		"/home/omid/Downloads/Installers/windows 10/Windows 10 X86 Pro 21H1 MAY 2021.txt":
+		{
+			"0xf48c6c84":
+			[
+				[
+					279,
+					382
+				]
+			]
+		},
 		"/home/omid/Downloads/MarketWatchPlus.aspx":
 		{
 			"0x9a9964f5":
@@ -1219,6 +1319,16 @@
 				[
 					849,
 					849
+				]
+			]
+		},
+		"/tmp/FreeTutorialsEU.com-50-popular-coding-interview-problems/Direct download link FreeTutorialsEU.com 50 popular coding interview problems.text":
+		{
+			"0xf9d47348":
+			[
+				[
+					90,
+					90
 				]
 			]
 		},

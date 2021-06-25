@@ -49,6 +49,7 @@ bindsym $mod1+Ctrl+b                exec --no-startup-id blurlock
 
 # Print screens
 #-------------------------------
+bindsym $mod2+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/retired.sh
 bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ssmanage/alternate.sh
 bindsym $mod1+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/normal.sh
 bindsym Ctrl+Print                  --release exec --no-startup-id /home/omid/.scripts/ssmanage/selection.sh

@@ -13,14 +13,12 @@ check_prog curl
 mkdir -p "$HOME/.config"
 
 stow --adopt -vSt "$HOME"              kitty
-# stow --adopt -vSt "$HOME" --no-folding autostart
 stow --adopt -vSt "$HOME"              picom
 stow --adopt -vSt "$HOME"              dunst
 stow --adopt -vSt "$HOME"              git
 stow --adopt -vSt "$HOME"              i3
 stow --adopt -vSt "$HOME" --no-folding nvim
 stow --adopt -vSt "$HOME"              rofi
-stow --adopt -vSt "$HOME" --no-folding scripts
 stow --adopt -vSt "$HOME"              vscode
 stow --adopt -vSt "$HOME"              xdg
 stow --adopt -vSt "$HOME" --no-folding zsh

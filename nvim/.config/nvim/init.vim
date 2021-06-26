@@ -1,3 +1,7 @@
+
+" Paste Then select previous selection and yank it again (paste more than one time)
+xnoremap p pgvy
+
 " Move lines Up and Down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==

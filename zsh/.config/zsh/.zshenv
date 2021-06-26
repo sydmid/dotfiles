@@ -16,7 +16,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+#export XAUTHORITY="$XDG_RUNTIME_DIR/.Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/xorg/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/xorg/xserverrc"
 

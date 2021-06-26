@@ -57,15 +57,16 @@ bindsym Ctrl+Print                  --release exec --no-startup-id /home/omid/.s
 # font for window titles and bar
 #-------------------------------
 font pango:System San Francisco Display 12
-#font pango:Noto Sans Regular 12
 
 # Showing app class and title
 #-------------------------------
-for_window [class=".*"] title_format "%class"
-for_window [class="Image Lounge"] title_format "%title"
-for_window [class="jetbrains-pycharm-ce"] title_format "%title"
-for_window [class="jetbrains-webstorm"] title_format "%title"
-for_window [class="google-chrome"] title_format "%title"
+for_window [class=".*"]                     title_format "%class"
+for_window [class="Image Lounge"]           title_format "%title"
+for_window [class="jetbrains-pycharm-ce"]   title_format "%title"
+for_window [class="jetbrains-webstorm"]     title_format "%title"
+for_window [class="google-chrome"]          title_format "%title"
+for_window [class="okular"]                 title_format "%title"
+
 
 # Containers Title alignment
 #-------------------------------
@@ -76,9 +77,10 @@ title_align center
 set $mod1 Mod4
 set $mod2 Mod1
 
-# Default Container mod
+# Workspaces
 #-------------------------------
 workspace_layout tabbed
+workspace_auto_back_and_forth yes
 
 # right button over a titlebar kills the window
 #-------------------------------
@@ -154,7 +156,7 @@ set $ws8    "8:  "
 
 # workspaces/containers control
 #-------------------------------
-bindsym $mod1+Tab workspace next
+bindsym $mod1+Tab workspace back_and_forth
 bindsym $mod2+Ctrl+Right workspace next
 bindsym $mod2+Ctrl+Left workspace prev
 
@@ -177,7 +179,7 @@ hide_edge_borders smart
 
 # set popups during fullscreen mode
 #-------------------------------
-popup_during_fullscreen smart
+popup_during_fullscreen leave_fullscreen
 
 # start a terminal
 #-------------------------------
@@ -372,7 +374,10 @@ bindsym $mod1+0 gaps outer current set 0
 bindsym $mod1+p layout splith; gaps top current set 0; gaps bottom current set 0; gaps left current set 0; gaps right current set 0
 bindsym $mod1+Shift+p layout tabbed; gaps outer all set 0;
 bindsym $mod1+v layout splitv; gaps top current set 0; gaps bottom current set 0; gaps left current set 0; gaps right current set 0
-bindsym $mod1+Shift+v layout tabbed; gaps top all set 400; gaps bottom all set 400; gaps left all set 0; gaps right all set 0
+# Center mode
+#bindsym $mod1+Shift+v layout tabbed; gaps top all set 400; gaps bottom all set 400; gaps left all set 0; gaps right all set 0
+# Bottom mode
+bindsym $mod1+Shift+v layout tabbed; gaps top all set 1000pt; gaps bottom all set 0; gaps left all set 0; gaps right all set 0
 
 
 # restart i3 inplace

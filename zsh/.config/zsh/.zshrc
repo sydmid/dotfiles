@@ -62,23 +62,19 @@ bindkey -M vicmd 'V' edit-command-line
 
 #{{{ Aliases
 
+alias g='git'
 alias gitup="git pull --recurse-submodules"
-alias dotup="cd $HOME/.dotfiles/ && sh ./install.sh && cd $HOME"
 alias src="source $HOME/.config/zsh/.zshrc"
+alias dotup="cd $HOME/.dotfiles/ && sh ./install.sh && cd $HOME"
 alias shut="sudo shutdown now"
 alias res="sudo reboot now"
 alias v='nvim'
+alias s='subl'
 alias vim=nvim
 alias sv="sudo -e"
 alias se="sudo -e"
-alias s='subl'
-alias r='ranger'
-alias g='git'
 alias composeup="docker-compose -f ~/docker-compose.yml up -d"
-alias scr="cd $HOME/.scripts"
-alias python='python3'
 alias zshrc="nvim $HOME/.config/zsh/.zshrc"
-alias config='/usr/bin/git --git-dir=/home/omid/.cfg/ --work-tree=/home/omid'
 alias grep='grep --color=auto'
 alias ...='cd ../..'
 alias :q='exit'
@@ -136,13 +132,13 @@ sss() {
 
 # get current SSSession
 esss() {
-    grep "SSSession='.*'" ./.scripts/persistentStorage.sh | sed --expression "s/export SSSession='//g" | sed --expression "s/'//g"
+    grep "SSSession='.*'" $HOME/.scripts/persistentStorage.sh | sed --expression "s/export SSSession='//g" | sed --expression "s/'//g"
 }
 
 # DropboxSync
 drops() {
-  rsync -av --delete /home/omid/Documents/syncthing/ /home/omid/Dropbox/gksy\'s\ shared\ workspace/syncbooks/;
-  rsync -av --delete /home/omid/Downloads/WEB_CLIPS/ /home/omid/Dropbox/gksy\'s\ shared\ workspace/WEB_CLIPS/;
+  rsync -av --delete $HOME/Documents/syncthing/ $HOME/Dropbox/gksy\'s\ shared\ workspace/syncbooks/;
+  rsync -av --delete  $HOME/Downloads/WEB_CLIPS/ $HOME/Dropbox/gksy\'s\ shared\ workspace/WEB_CLIPS/;
 }
 
 # Pacman Usefull Aliases

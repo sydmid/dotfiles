@@ -7,7 +7,9 @@
 # startup applications
 #-------------------------------
 exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#-----------External Display Port Startup-----------
 #exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+#-----------External HDMI Port Startup-----------
 exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
 exec              --no-startup-id nm-applet
 exec              --no-startup-id blueman-applet
@@ -41,18 +43,18 @@ bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat -class=float leafpad
 bindsym $mod1+c                     exec --no-startup-id tdrop --y-offset=30% -w 48% -h 48% --x-offset=26% -mat -class=float anki
 bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
-bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/ssmanage/ssmenu.sh
+bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/ssmanage/omid_menu.sh
 bindsym $mod1+Ctrl+m                exec --no-startup-id pavucontrol
-bindsym $mod2+space                 exec --no-startup-id rofi -show drun
-bindsym $mod2+v                     exec --no-startup-id CM_LAUNCHER=rofi clipmenu -i && xdotool type "$(xclip -o -selection clipboard)"
+bindsym $mod2+space                 exec --no-startup-id "rofi -show combi -combi-modi 'drun' -modi combi"
+bindsym $mod2+v                     exec --no-startup-id "CM_LAUNCHER=rofi clipmenu -i && xdotool type '$(xclip -o -selection clipboard)'"
 bindsym $mod1+Ctrl+b                exec --no-startup-id blurlock
 
 # Print screens
 #-------------------------------
-bindsym $mod2+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/retired.sh
-bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ssmanage/alternate.sh
-bindsym $mod1+Print                 --release exec --no-startup-id /home/omid/.scripts/ssmanage/normal.sh
-bindsym Ctrl+Print                  --release exec --no-startup-id /home/omid/.scripts/ssmanage/selection.sh
+bindsym $mod2+Print                 --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/retired.sh
+bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/alternate.sh
+bindsym $mod1+Print                 --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/normal.sh
+bindsym Ctrl+Print                  --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/selection.sh
 
 # font for window titles and bar
 #-------------------------------
@@ -108,13 +110,13 @@ exec --no-startup-id pa-applet
 
 # Brightness
 #-------------------------------
-bindsym XF86MonBrightnessDown exec --no-startup-id "/home/omid/.scripts/brightness-change.sh - eDP1"
-bindsym XF86MonBrightnessUp exec --no-startup-id "/home/omid/.scripts/brightness-change.sh + eDP1"
+bindsym XF86MonBrightnessDown exec --no-startup-id "$HOME/.scripts/brightness-change.sh - eDP1"
+bindsym XF86MonBrightnessUp exec --no-startup-id "$HOME/.scripts/brightness-change.sh + eDP1"
 
 # External Monitor
 #-------------------------------
-bindsym Shift+XF86MonBrightnessDown exec "/home/omid/.scripts/brightness-change.sh - DP1"
-bindsym Shift+XF86MonBrightnessUp exec "/home/omid/.scripts/brightness-change.sh + DP1"
+bindsym Shift+XF86MonBrightnessDown exec "$HOME/.scripts/brightness-change.sh - DP1"
+bindsym Shift+XF86MonBrightnessUp exec "$HOME/.scripts/brightness-change.sh + DP1"
 
 # Arandr Configs
 #-------------------------------

@@ -116,14 +116,6 @@ alias de="deactivate"
 mkd() {
     mkdir -p "$@" && cd "$@"
 }
-# Create a file and subl it
-tepy(){
-    touch "$HOME/Desktop/TestLab/py/$@.py" && subl "$HOME/Desktop/TestLab/py$@.py"
-}
-
-tejs(){
-    touch "$HOME/Desktop/TestLab/js/$@.js" && subl "$HOME/Desktop/TestLab/js$@.js"
-}
 
 # change screen shot session from persistent storage
 sss() {
@@ -139,6 +131,7 @@ esss() {
 drops() {
   rsync -av --delete $HOME/Documents/syncthing/ $HOME/Dropbox/gksy\'s\ shared\ workspace/syncbooks/;
   rsync -av --delete  $HOME/Downloads/WEB_CLIPS/ $HOME/Dropbox/gksy\'s\ shared\ workspace/WEB_CLIPS/;
+  rsync -av --delete  $HOME/Desktop/TestLab/ $HOME/Dropbox/gksy\'s\ shared\ workspace/TestLab/;
 }
 
 # Pacman Usefull Aliases
@@ -153,7 +146,7 @@ pacdeps() {
 
 # SS Archieving
 ssarch() {
-    python $HOME/.scripts/ssmanage/ss.py main
+    python $HOME/.scripts/ss/manage.py main
 }
 
 ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"

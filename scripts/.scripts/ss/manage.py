@@ -4,20 +4,25 @@ import re
 from os import mkdir
 import subprocess
 from datetime import datetime
+from typing import Dict, List, Union
 import argparse
 
 USER = 'omid'
 PICTURES = f'/home/{USER}/Pictures'
 DIR_PATH = PICTURES
 SS_PATH = os.path.join(DIR_PATH, 'SS')
+INDEX_ROOT = os.path.join(SS_PATH, '_Index')
 BACKUP_PATH = os.path.join(DIR_PATH, 'temp_backup')
 BACKUP2_PATH = os.path.join(DIR_PATH, '.Index_backup')
-INDEX_ROOT = os.path.join(DIR_PATH, 'Index')
 
 utils = {
     'sanityCheck': lambda x: x.replace('(', r'\(').replace(')', r'\)').replace(' ', r'\ ').replace('&', r'\&')
 }
 ndict = {}
+
+
+def _search_dir(list) -> List:
+    pass
 
 
 def ss_name_fixer():
@@ -108,6 +113,8 @@ def linker():
     print('Indexing ...')
     for (root, dirs, files) in os.walk(SS_PATH, topdown=True):
         for dirname in dirs:
+            if dirname == '_Index':
+                continue
             with os.scandir(os.path.join(SS_PATH, dirname)) as entries:
                 for entry in entries:
                     entry_name = entry.name
@@ -133,16 +140,19 @@ def linker():
 def main():
     try:
         searchDict()
-    except:
-        return 1
+    except Exception as err:
+        print(err)
+        return
     try:
         move_to_ss()
-    except:
-        return 1
+    except Exception as err:
+        print(err)
+        return
     try:
         linker()
-    except:
-        return 1
+    except Exception as err:
+        print(err)
+        return
     print('Done')
 
 
@@ -159,5 +169,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
     try:
         operations_dict[args.operation]()
-    except:
-        print('something went wrong. check your input argument')
+    except Exception as err:
+        print(f'something went wrong. check your input argument\n Error: {err}')

@@ -131,7 +131,8 @@ esss() {
 drops() {
   rsync -av --delete $HOME/Documents/syncthing/ $HOME/Dropbox/gksy\'s\ shared\ workspace/syncbooks/;
   rsync -av --delete  $HOME/Downloads/WEB_CLIPS/ $HOME/Dropbox/gksy\'s\ shared\ workspace/WEB_CLIPS/;
-  rsync -av --delete  $HOME/Desktop/TestLab/ $HOME/Dropbox/gksy\'s\ shared\ workspace/TestLab/;
+  rsync -av --delete  $HOME/Desktop/tests/ $HOME/Dropbox/gksy\'s\ shared\ workspace/code/tests/;
+  rsync -av --delete  $HOME/Desktop/gists/ $HOME/Dropbox/gksy\'s\ shared\ workspace/code/gists/;
 }
 
 # Pacman Usefull Aliases

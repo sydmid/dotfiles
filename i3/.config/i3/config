@@ -32,22 +32,25 @@ exec_always       --no-startup-id picom
 exec_always       --no-startup-id fix_xcursor
 exec_always       --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always       --no-startup-id "sleep 2; killall sxhkd; sxhkd"
+exec_always       --no-startup-id alttab -fg "#f1f1f1" -bg "#3F3F3F" -frame "#42a5f5" -t 300x300 -i 300x150 -font xft:System\ San\ Francisco\ Display:style=Bold:size=13
 
 
 
 # shortcut applications
 #-------------------------------
-bindsym $mod1+e                     exec dolphin /home/omid
+bindsym $mod1+shift+d  exec eval "$wmctrl -l | rofi -dmenu -i -p 'window' | cut -d ' ' -f1 | xargs -I {} i3-msg '[id=\\"{}\\"] focus'"
+bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
+bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/omid_menu.sh
+bindsym $mod2+space                 exec --no-startup-id "rofi -show combi -combi-modi 'drun' -modi combi"
+bindsym $mod1+t                     workspace $ws1; exec --no-startup-id urxvt
+bindsym $mod1+e                     workspace $ws4; exec dolphin /home/omid
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
 bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser-extended [ -file-browser-dir /home/omid ] [ -file-browser-hide-parent ]
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat -class=float leafpad
 bindsym $mod1+c                     exec --no-startup-id tdrop --y-offset=30% -w 48% -h 48% --x-offset=26% -mat -class=float anki
-bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
-bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/ssmanage/omid_menu.sh
-bindsym $mod1+Ctrl+m                exec --no-startup-id pavucontrol
-bindsym $mod2+space                 exec --no-startup-id "rofi -show combi -combi-modi 'drun' -modi combi"
 bindsym $mod2+v                     exec --no-startup-id "CM_LAUNCHER=rofi clipmenu -i && xdotool type '$(xclip -o -selection clipboard)'"
 bindsym $mod1+Ctrl+b                exec --no-startup-id blurlock
+bindsym $mod1+Ctrl+m                exec --no-startup-id pavucontrol
 
 # Print screens
 #-------------------------------
@@ -68,6 +71,7 @@ for_window [class="jetbrains-pycharm-ce"]   title_format "%title"
 for_window [class="jetbrains-webstorm"]     title_format "%title"
 for_window [class="google-chrome"]          title_format "%title"
 for_window [class="okular"]                 title_format "%title"
+for_window [class="mpv"]                    title_format "%title"
 
 
 # Containers Title alignment
@@ -183,13 +187,9 @@ hide_edge_borders smart
 #-------------------------------
 popup_during_fullscreen leave_fullscreen
 
-# start a terminal
-#-------------------------------
-bindsym $mod1+t exec --no-startup-id urxvt
-
 # switching window with alt+tab
 #-------------------------------
-bindsym $mod2+Tab focus next
+#bindsym $mod2+Tab focus next
 
 # kill focused window
 #-------------------------------
@@ -338,8 +338,12 @@ for_window [window_role="Preferences"]              floating enable
 # assign program to workspace
 #-------------------------------
 assign [class="jetbrains-pycharm-ce"]               → $ws1
+assign [class="URxvt"]                              → $ws1
 assign [class="jetbrains-webstorm"]                 → $ws2
 assign [class="google-chrome"]                      → $ws3
+assign [class="dolphin"]                            → $ws4
+assign [class="okular"]                             → $ws5
+assign [class="mpv"]                                → $ws6
 
 
 # class                  border  backgr  text  indicator child_border

@@ -1,43 +1,47 @@
-to_open=$(printf "ss\nbooks\ntuts\ntests" | rofi -dmenu) &&
-case $to_open in
+main_prompt=$(printf "ss\nbooks\ntuts\ntests\ngists" | rofi -dmenu) &&
+case $main_prompt in
 
   ss)
-    prompt1_message=$(printf "ss\nindex" | rofi -dmenu) &&
-    case $prompt1_message in
+    prompt1=$(printf "ss\nindex\nlatest" | rofi -dmenu) &&
+    case $prompt1 in
 
       ss)
         rofi -show file-browser-extended [ -file-browser-dir /home/omid/Pictures/SS ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
       ;;
 
       index)
-        rofi -show file-browser-extended [ -file-browser-dir /home/omid/Pictures/Index ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
+        rofi -show file-browser-extended [ -file-browser-dir /home/omid/Pictures/SS/_Index ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
+      ;;
+
+      latest)
+        prompt2=$(printf "to be implemented" | rofi -dmenu);
       ;;
 
     esac
   ;;
 
   tests)
-    prompt1_result=$(printf "js\npy" | rofi -dmenu) &&
-    case $prompt1_result in
+    prompt1=$(printf "js\npy" | rofi -dmenu) &&
+    case $prompt1 in
       js )
         sesname=$(grep "SSSession='.*'" $HOME/.scripts/persistentStorage.sh | sed --expression "s/export SSSession='//g" | sed --expression "s/'//g" | xargs -I {} echo {});
-        prompt2_result=$(printf "session-name: $sesname\ntmp" | rofi -dmenu) &&
-        case $prompt2_result in
+        prompt2=$(printf "session-name:$sesname\ntmp" | rofi -dmenu) &&
+        case $prompt2 in
 
           '')
-          file_to_create="${HOME}/Desktop/TestLab/js/$(date '+%F_%H:%M:%S')_${sesname}.js"
+          file_to_create="${HOME}/Desktop/tests/js/$(date '+%F_%H:%M:%S')_${sesname}.js"
           touch $file_to_create &&
           subl $file_to_create
           ;;
 
           tmp)
-          file_to_create="${HOME}/Desktop/TestLab/js/tmp/$(date '+%F_%H:%M:%S').js"
+          file_to_create="${HOME}/Desktop/tests/js/tmp/$(date '+%F_%H:%M:%S').js"
           touch $file_to_create &&
           subl $file_to_create
           ;;
 
           *)
-          file_to_create="${HOME}/Desktop/TestLab/js/$(date '+%F_%H:%M:%S')_${sesname}_${prompt2_result}.js"
+          file_to_create="${HOME}/Desktop/tests/js/$(date '+%F_%H:%M:%S')_${sesname}_${prompt2}.js"
           touch $file_to_create &&
           subl $file_to_create
           ;;
@@ -46,23 +50,23 @@ case $to_open in
       ;;
       py )
         sesname=$(grep "SSSession='.*'" $HOME/.scripts/persistentStorage.sh | sed --expression "s/export SSSession='//g" | sed --expression "s/'//g" | xargs -I {} echo {});
-        prompt2_result=$(printf "session-name: $sesname\ntmp" | rofi -dmenu) &&
-        case $prompt2_result in
+        prompt2=$(printf "session-name:$sesname\ntmp" | rofi -dmenu) &&
+        case $prompt2 in
 
           '')
-          file_to_create="${HOME}/Desktop/TestLab/py/$(date '+%F_%H:%M:%S')_${sesname}.py"
+          file_to_create="${HOME}/Desktop/tests/py/$(date '+%F_%H:%M:%S')_${sesname}.py"
           touch $file_to_create &&
           subl $file_to_create
           ;;
 
           tmp)
-          file_to_create="${HOME}/Desktop/TestLab/py/tmp/$(date '+%F_%H:%M:%S').py"
+          file_to_create="${HOME}/Desktop/tests/py/tmp/$(date '+%F_%H:%M:%S').py"
           touch $file_to_create &&
           subl $file_to_create
           ;;
 
           *)
-          file_to_create="${HOME}/Desktop/TestLab/py/$(date '+%F_%H:%M:%S')_${sesname}_${prompt2_result}.py"
+          file_to_create="${HOME}/Desktop/tests/py/$(date '+%F_%H:%M:%S')_${sesname}_${prompt2}.py"
           touch $file_to_create &&
           subl $file_to_create
           ;;
@@ -73,8 +77,8 @@ case $to_open in
   ;;
 
   tuts)
-    prompt1_result=$(printf "documents\ndownloads" | rofi -dmenu) &&
-    case $prompt1_result in
+    prompt1=$(printf "documents\ndownloads" | rofi -dmenu) &&
+    case $prompt1 in
       documents)
         rofi -show file-browser-extended [ -file-browser-dir /home/omid/Documents/Tutorials ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
       ;;
@@ -88,8 +92,26 @@ case $to_open in
     rofi -show file-browser-extended [ -file-browser-dir /home/omid/Documents/syncthing ] [ -file-browser-depth 3 ] [ -file-browser-hide-parent ]
   ;;
 
+  gists)
+    prompt1=$(printf "js\npy" | rofi -dmenu) &&
+    case $prompt1 in
+      js)
+        prompt2=$(printf "Type your desired name" | rofi -dmenu) &&
+        file_to_create="${HOME}/Desktop/gists/js/${prompt2}_$(date '+%F_%H:%M:%S').js"
+        touch $file_to_create &&
+        subl $file_to_create
+      ;;
+      py)
+        prompt2=$(printf "Type your desired name" | rofi -dmenu) &&
+        file_to_create="${HOME}/Desktop/gists/py/${prompt2}_$(date '+%F_%H:%M:%S').py"
+        touch $file_to_create &&
+        subl $file_to_create
+      ;;
+    esac
+  ;;
+
   *)
-    echo -n "unknown"
+    prompt1=$(printf "input is not right try again" | rofi -dmenu);
   ;;
 esac
 

@@ -38,10 +38,9 @@ exec_always       --no-startup-id alttab -fg "#f1f1f1" -bg "#3F3F3F" -frame "#42
 
 # shortcut applications
 #-------------------------------
-bindsym $mod1+shift+d  exec eval "$wmctrl -l | rofi -dmenu -i -p 'window' | cut -d ' ' -f1 | xargs -I {} i3-msg '[id=\\"{}\\"] focus'"
 bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
 bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/omid_menu.sh
-bindsym $mod2+space                 exec --no-startup-id "rofi -show combi -combi-modi 'drun' -modi combi"
+bindsym $mod2+space                 exec --no-startup-id "rofi -show drun"
 bindsym $mod1+t                     workspace $ws1; exec --no-startup-id urxvt
 bindsym $mod1+e                     workspace $ws4; exec dolphin /home/omid
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-stable
@@ -86,7 +85,6 @@ set $mod2 Mod1
 # Workspaces
 #-------------------------------
 workspace_layout tabbed
-workspace_auto_back_and_forth yes
 
 # right button over a titlebar kills the window
 #-------------------------------
@@ -176,8 +174,8 @@ focus_follows_mouse no
 
 # window border settings
 #-------------------------------
-default_border          normal
-default_floating_border normal
+default_border          pixel 1
+default_floating_border pixel 1
 
 # hiding borders adjacent to the screen edges
 #-------------------------------
@@ -345,14 +343,24 @@ assign [class="dolphin"]                            → $ws4
 assign [class="okular"]                             → $ws5
 assign [class="mpv"]                                → $ws6
 
-
+# Light-Dark
 # class                  border  backgr  text  indicator child_border
 #--------------------------------------------------------------------
-client.focused          #42a5f5 #3F3F3F #80d0ff #454948 #1685DF
-client.focused_inactive #3F3F3F #3F3F3F #ffffff #FDF6E3
-client.unfocused        #3F3F3F #3F3F3F #ffffff #FDF6E3
-client.urgent           #CB4B16 #FDF6E3 #42a5f5 #268BD2
-client.placeholder      #000000 #0c0c0c #ffffff #000000
+#client.focused          #42a5f5 #3F3F3F #80d0ff #454948 #1685DF
+#client.focused_inactive #3F3F3F #3F3F3F #ffffff #FDF6E3
+#client.unfocused        #73C0F5 #3F3F3F #ffffff #FDF6E3
+#client.urgent           #CB4B16 #FDF6E3 #42a5f5 #268BD2
+#client.placeholder      #000000 #0c0c0c #ffffff #000000
+#client.background       #2B2C2B
+
+# Heavy-Dark
+# class                  border  backgr  text  indicator child_border
+#--------------------------------------------------------------------
+client.focused          #42a5f5 #000000 #ffffff #454948 #1685DF
+client.focused_inactive #3F3F3F #000000 #BABABA #FDF6E3
+client.unfocused        #000000 #000000 #BABABA #FDF6E3
+client.urgent           #000000 #BD2C40 #BABABA #268BD2
+client.placeholder      #000000 #0c0c0c #BABABA #000000
 client.background       #2B2C2B
 
 
@@ -374,8 +382,8 @@ bindsym $mod1+r mode "resize"
 
 # Gap Controls
 #-------------------------------
-gaps outer 50
-bindsym $mod1+b gaps outer current toggle 50
+gaps outer 35
+bindsym $mod1+b gaps outer current toggle 35
 bindsym $mod1+0 gaps outer current set 0
 bindsym $mod1+p layout splith; gaps top current set 0; gaps bottom current set 0; gaps left current set 0; gaps right current set 0
 bindsym $mod1+Shift+p layout tabbed; gaps outer all set 0;

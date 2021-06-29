@@ -56,7 +56,7 @@ mainbox {
   children: [ inputbar, listview ];
   margin: 25% 30% 25% 30%;
   background-color: @bg;
-  border-radius: 12;
+  border-radius: 0;
   border: 2;
   border-color: #ffffff0A;
 }
@@ -72,7 +72,7 @@ element {
   text-color: @item;
   orientation: horizontal;
   padding: 8 12 8 12;
-  border-radius: 6;
+  border-radius: 0;
 }
 
 element selected {

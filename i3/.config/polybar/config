@@ -3,7 +3,8 @@ xfs=#e1e1e1
 xbs=#8c91cf
 xfg=#CCFFFFFF
 xbg2=#00000000
-xbg=#AA191919
+#xbg=#AA191919
+xbg=#000000
 
 color0=#282828 # ----
 color1=#383838 # ---
@@ -42,7 +43,7 @@ border-bottom-size = 5
 border-right-size = 0
 border-left-size = 0
 
-bottom = true
+bottom = false
 #override-redirect = true
 
 font-0 = "Iosevka:style=regular:size=16;3"

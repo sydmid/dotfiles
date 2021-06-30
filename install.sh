@@ -12,19 +12,20 @@ check_prog curl
 
 mkdir -p "$HOME/.config"
 
-stow --adopt -vSt "$HOME"              kitty
-stow --adopt -vSt "$HOME"              picom
-stow --adopt -vSt "$HOME"              dunst
-stow --adopt -vSt "$HOME"              git
-stow --adopt -vSt "$HOME"              i3
-stow --adopt -vSt "$HOME" --no-folding nvim
-stow --adopt -vSt "$HOME"              rofi
-stow --adopt -vSt "$HOME"              vscode
-stow --adopt -vSt "$HOME"              xdg
+stow --adopt -vSt "$HOME"              HOME
+stow --adopt -vSt "$HOME"              imwheel
 stow --adopt -vSt "$HOME" --no-folding zsh
+stow --adopt -vSt "$HOME" --no-folding i3
+stow --adopt -vSt "$HOME" --no-folding kitty
+stow --adopt -vSt "$HOME" --no-folding picom
+stow --adopt -vSt "$HOME" --no-folding dunst
+stow --adopt -vSt "$HOME" --no-folding nvim
+stow --adopt -vSt "$HOME" --no-folding rofi
+stow --adopt -vSt "$HOME" --no-folding git
+stow --adopt -vSt "$HOME" --no-folding vscode
 stow --adopt -vSt "$HOME" --no-folding scripts
 stow --adopt -vSt "$HOME" --no-folding sublime3
-stow --adopt -vSt "$HOME"              sxhkd
-stow --adopt -vSt "$HOME"              mpv
-stow --adopt -vSt "$HOME"              dolphin
-stow --adopt -vSt "$HOME"              HOME
+stow --adopt -vSt "$HOME" --no-folding sxhkd
+stow --adopt -vSt "$HOME" --no-folding mpv
+stow --adopt -vSt "$HOME" --no-folding dolphin
+stow --adopt -vSt "$HOME" --no-folding xdg

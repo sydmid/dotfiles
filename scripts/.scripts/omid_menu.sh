@@ -1,4 +1,4 @@
-main_prompt=$(printf "ss\nbooks\ntuts\ntests\ngists" | rofi -dmenu) &&
+main_prompt=$(printf "ss\nbooks\ntuts\ntests\ngists\nprojects" | rofi -dmenu) &&
 case $main_prompt in
 
   ss)
@@ -31,19 +31,19 @@ case $main_prompt in
           '')
           file_to_create="${HOME}/Desktop/tests/js/$(date '+%F_%H:%M:%S')_${sesname}.js"
           touch $file_to_create &&
-          subl $file_to_create
+          code $file_to_create
           ;;
 
           tmp)
           file_to_create="${HOME}/Desktop/tests/js/tmp/$(date '+%F_%H:%M:%S').js"
           touch $file_to_create &&
-          subl $file_to_create
+          code $file_to_create
           ;;
 
           *)
           file_to_create="${HOME}/Desktop/tests/js/$(date '+%F_%H:%M:%S')_${sesname}_${prompt2}.js"
           touch $file_to_create &&
-          subl $file_to_create
+          code $file_to_create
           ;;
 
         esac
@@ -56,19 +56,19 @@ case $main_prompt in
           '')
           file_to_create="${HOME}/Desktop/tests/py/$(date '+%F_%H:%M:%S')_${sesname}.py"
           touch $file_to_create &&
-          subl $file_to_create
+          code $file_to_create
           ;;
 
           tmp)
           file_to_create="${HOME}/Desktop/tests/py/tmp/$(date '+%F_%H:%M:%S').py"
           touch $file_to_create &&
-          subl $file_to_create
+          code $file_to_create
           ;;
 
           *)
           file_to_create="${HOME}/Desktop/tests/py/$(date '+%F_%H:%M:%S')_${sesname}_${prompt2}.py"
           touch $file_to_create &&
-          subl $file_to_create
+          code $file_to_create
           ;;
 
         esac
@@ -99,15 +99,19 @@ case $main_prompt in
         prompt2=$(printf "Type your desired name" | rofi -dmenu) &&
         file_to_create="${HOME}/Desktop/gists/js/${prompt2}_$(date '+%F_%H:%M:%S').js"
         touch $file_to_create &&
-        subl $file_to_create
+        code $file_to_create
       ;;
       py)
         prompt2=$(printf "Type your desired name" | rofi -dmenu) &&
         file_to_create="${HOME}/Desktop/gists/py/${prompt2}_$(date '+%F_%H:%M:%S').py"
         touch $file_to_create &&
-        subl $file_to_create
+        code $file_to_create
       ;;
     esac
+  ;;
+
+  projects)
+    rofi -show file-browser-extended [ -file-browser-dir /home/omid/Documents/Projects ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
   ;;
 
   *)

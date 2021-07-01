@@ -10,7 +10,7 @@ exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authenticat
 #-----------External Display Port Startup-----------
 #exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
 #-----------External HDMI Port Startup-----------
-exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+#exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
 exec              --no-startup-id nm-applet
 exec              --no-startup-id blueman-applet
 exec              --no-startup-id $HOME/.scripts/bt_keyboard_connect.sh
@@ -73,6 +73,7 @@ for_window [class="google-chrome-stable"]       title_format "%title"
 for_window [class="google-chrome-unstable"]     title_format "%title"
 for_window [class="okular"]                     title_format "%title"
 for_window [class="mpv"]                        title_format "%title"
+for_window [class="code-oss"]                   title_format "%title"
 
 
 # Containers Title alignment

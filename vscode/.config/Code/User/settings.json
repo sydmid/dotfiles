@@ -1,0 +1,62 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "workbench.colorTheme": "Blueberry dark theme",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "liveServer.settings.donotVerifyTags": true,
+  "git.enableSmartCommit": true,
+  "window.openFoldersInNewWindow": "on",
+  "window.openFilesInNewWindow": "on",
+  "window.titleBarStyle": "native",
+  "editor.fontSize": 18,
+  "editor.fontFamily": "Operator Mono Lig",
+  "workbench.startupEditor": "newUntitledFile",
+  "files.autoSave": "afterDelay",
+  "terminal.integrated.fontSize": 15,
+  "[Log]": {
+    "editor.fontSize": 12
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "window.zoomLevel": -1,
+  "editor.minimap.enabled": false,
+  "workbench.colorCustomizations": {
+    "[Blueberry dark theme]": {
+      "editorCursor.background": "#ffff4d",
+      "editorCursor.foreground": "#ffff4d"
+    }
+  },
+  "window.menuBarVisibility": "toggle",
+  "files.exclude": {
+    "package-lock.json": true,
+    "yarn.lock": true,
+    "Pipfile.lock": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "node_modules": true
+  },
+  "window.title": "${activeEditorShort}",
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "[python]": {
+    "editor.rulers": [79],
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
+  "workbench.editor.tabCloseButton": "off",
+  "workbench.settings.editor": "json",
+  "editor.cursorBlinking": "solid",
+  "breadcrumbs.symbolPath": "off",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  }
+}

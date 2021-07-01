@@ -1,6 +1,7 @@
 oc-cmd     "webstorm;name:webstorm;icon:webstorm"
 oc-cmd     "pycharm;name:pycharm;icon:pycharm"
 oc-cmd     "subl;name:subl;icon:sublime-text"
+oc-cmd     "code;name:code;icon:com.visualstudio.code.oss"
 oc-cmd     "dolphin;name:file;icon:dolphin"
 oc-cmd     "mpv;name:mpv;icon:mpv"
 follow-symlinks

@@ -1,62 +1,78 @@
 {
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "workbench.colorTheme": "Blueberry dark theme",
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  "liveServer.settings.donotVerifyTags": true,
-  "git.enableSmartCommit": true,
-  "window.openFoldersInNewWindow": "on",
-  "window.openFilesInNewWindow": "on",
-  "window.titleBarStyle": "native",
-  "editor.fontSize": 18,
-  "editor.fontFamily": "Operator Mono Lig",
-  "workbench.startupEditor": "newUntitledFile",
-  "files.autoSave": "afterDelay",
-  "terminal.integrated.fontSize": 15,
-  "[Log]": {
-    "editor.fontSize": 12
-  },
-  "liveServer.settings.donotShowInfoMsg": true,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "window.zoomLevel": -1,
-  "editor.minimap.enabled": false,
-  "workbench.colorCustomizations": {
-    "[Blueberry dark theme]": {
-      "editorCursor.background": "#ffff4d",
-      "editorCursor.foreground": "#ffff4d"
-    }
-  },
-  "window.menuBarVisibility": "toggle",
-  "files.exclude": {
-    "package-lock.json": true,
-    "yarn.lock": true,
-    "Pipfile.lock": true,
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "node_modules": true
-  },
-  "window.title": "${activeEditorShort}",
-  "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true,
-  "[python]": {
-    "editor.rulers": [79],
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
-  "workbench.editor.tabCloseButton": "off",
-  "workbench.settings.editor": "json",
-  "editor.cursorBlinking": "solid",
-  "breadcrumbs.symbolPath": "off",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  }
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"workbench.colorTheme": "Blueberry dark theme",
+	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": false,
+	"liveServer.settings.donotVerifyTags": true,
+	"git.enableSmartCommit": true,
+	"window.openFoldersInNewWindow": "on",
+	"window.openFilesInNewWindow": "on",
+	"window.titleBarStyle": "native",
+	"editor.fontSize": 15,
+	"editor.fontFamily": "Input Mono Compressed",
+	"files.autoSave": "afterDelay",
+	"terminal.integrated.fontSize": 15,
+	"[Log]": {
+		"editor.fontSize": 12
+	},
+	"liveServer.settings.donotShowInfoMsg": true,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"editor.minimap.enabled": false,
+	"workbench.colorCustomizations": {
+		"[Blueberry dark theme]": {
+			"editorCursor.background": "#ffff4d",
+			"editorCursor.foreground": "#ffff4d"
+		}
+	},
+	"window.menuBarVisibility": "toggle",
+	"files.exclude": {
+		"package-lock.json": true,
+		"yarn.lock": true,
+		"Pipfile.lock": true,
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"node_modules": true,
+		"**/__pycache__": true,
+		"**/.idea": true,
+		"**/.pytest_cache": true
+	},
+	"window.title": "vscode ${activeEditorShort}",
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	"[python]": {
+		"editor.rulers": [79],
+		"editor.wordWrap": "on",
+		"editor.quickSuggestions": false
+	},
+	"workbench.editor.tabCloseButton": "off",
+	"workbench.settings.editor": "json",
+	"editor.cursorBlinking": "solid",
+	"breadcrumbs.symbolPath": "off",
+	"workbench.editorAssociations": {
+		"*.ipynb": "jupyter.notebook.ipynb"
+	},
+	"editor.suggestSelection": "first",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"python.defaultInterpreterPath": "/bin/python",
+	"jupyter.jupyterServerType": "local",
+	"hungryDelete.enableSmartBackspace": false,
+	"macros": {
+		"resetWorkspace": [
+			"workbench.action.closeAllEditors",
+			"workbench.files.action.collapseExplorerFolders"
+		]
+	},
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4,
+	"prettier.singleQuote": true,
+	"workbench.startupEditor": "none"
 }

@@ -36,7 +36,6 @@ case $main_prompt in
 
           tmp)
           file_to_create="${HOME}/Desktop/tests/js/tmp/$(date '+%F_%H:%M:%S').js"
-          touch $file_to_create &&
           code $file_to_create
           ;;
 
@@ -60,8 +59,7 @@ case $main_prompt in
           ;;
 
           tmp)
-          file_to_create="${HOME}/Desktop/tests/py/tmp/$(date '+%F_%H:%M:%S').py"
-          touch $file_to_create &&
+          file_to_create="${HOME}/Desktop/tests/py/tmp/$(date '+%F_%H:%M:%S').ipynb"
           code $file_to_create
           ;;
 

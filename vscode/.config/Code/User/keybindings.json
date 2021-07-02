@@ -27,5 +27,22 @@
     "command": "extension.advancedNewFile",
     "when": "!terminalFocus"
   },
-  
+  {
+    "key": "ctrl+shift+c",
+    "command": "comment-divider.makeSubHeader",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "macros.resetWorkspace"
+  },
+
+  {
+    "key": "ctrl+alt+1",
+    "command": "workbench.action.editorLayoutSingle"
+  },
+  {
+    "key": "ctrl+alt+2",
+    "command": "workbench.action.editorLayoutTwoColumns"
+  }
 ]

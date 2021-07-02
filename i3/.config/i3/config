@@ -8,9 +8,9 @@
 #-------------------------------
 exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #-----------External Display Port Startup-----------
-#exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+#exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 #-----------External HDMI Port Startup-----------
-#exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+#exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 exec              --no-startup-id nm-applet
 exec              --no-startup-id blueman-applet
 exec              --no-startup-id $HOME/.scripts/bt_keyboard_connect.sh
@@ -21,7 +21,7 @@ exec              --no-startup-id "sleep 1; setxkbmap -option caps:ctrl_modifier
 exec              --no-startup-id sed -i "s/export SSSession='.*'/export SSSession='General'/" $HOME/.scripts/persistentStorage.sh
 exec              --no-startup-id imwheel -b 45
 exec              --no-startup-id "sleep 2; clipmenud"
-exec              --no-startup-id "sleep 2; start_conky_custom1"
+#exec              --no-startup-id "sleep 2; start_conky_custom1"
 exec              --no-startup-id "sleep 2; dunstctl set-paused true"
 exec_always       --no-startup-id xautolock -time 10 -locker blurlock
 exec_always       --no-startup-id "setxkbmap -option caps:ctrl_modifier; xcape -e Caps_Lock=Escape; xmodmap -e 'keycode 169 = Print'"
@@ -73,8 +73,8 @@ for_window [class="google-chrome-stable"]       title_format "%title"
 for_window [class="google-chrome-unstable"]     title_format "%title"
 for_window [class="okular"]                     title_format "%title"
 for_window [class="mpv"]                        title_format "%title"
-for_window [class="code-oss"]                   title_format "%title"
-
+for_window [class="Code"]                       title_format "%title"
+for_window [class="Subl"]                       title_format "%title"
 
 # Containers Title alignment
 #-------------------------------
@@ -125,21 +125,21 @@ bindsym Shift+XF86MonBrightnessUp exec "$HOME/.scripts/brightness-change.sh + DP
 
 # Arandr Configs
 #-------------------------------
-bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
 
 # HDMI (2) modes
 #-------------------------------
-bindsym Ctrl+Shift+7 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
-bindsym Ctrl+Shift+6 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --primary --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+bindsym Ctrl+Shift+7 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore"
+bindsym Ctrl+Shift+6 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --primary --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 # Vertical
-bindsym Ctrl+Shift+5 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+bindsym Ctrl+Shift+5 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 
 # Display Port (DP1) modes
 #-------------------------------
-bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
-bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
+bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
 # Vertical
-bindsym Ctrl+Shift+4 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore; sleep 1; killall conky; start_conky_custom1"
+bindsym Ctrl+Shift+4 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 
 # Icons of the workspaces
 #-------------------------------
@@ -385,15 +385,15 @@ bindsym $mod1+r mode "resize"
 
 # Gaps and Layouts
 #-------------------------------
-gaps top 25
+gaps top 0
 gaps left 0
 gaps right 0
 gaps bottom 35
-bindsym $mod1+b             "gaps top current toggle 25; gaps bottom current toggle 35"
 bindsym $mod1+0             "gaps outer current set 0"
-bindsym $mod1+p             "layout splith; gaps top current set 0; gaps bottom current set 0; gaps left current set 0; gaps right current set 0"
-bindsym $mod1+Shift+p       "layout tabbed; gaps outer all set 0"
-bindsym $mod1+v             "layout splitv; gaps top current set 0; gaps bottom current set 0; gaps left current set 0; gaps right current set 0"
+bindsym $mod1+p             "layout splith; gaps top current set 0; gaps bottom current set 35; gaps left current set 0; gaps right current set 0"
+bindsym $mod1+Shift+p       "layout tabbed; gaps top current set 0; gaps bottom current set 35; gaps left current set 0; gaps right current set 0"
+bindsym $mod1+v             "layout splitv; gaps top current set 0; gaps bottom current set 35; gaps left current set 0; gaps right current set 0"
+# External Modes
 # Center mode
 #bindsym $mod1+Shift+v      "layout tabbed; gaps top all set 400; gaps bottom all set 400; gaps left all set 0; gaps right all set 0"
 # Bottom mode

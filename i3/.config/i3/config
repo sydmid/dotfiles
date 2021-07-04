@@ -236,7 +236,7 @@ bindsym $mod1+Ctrl+e layout toggle split
 
 # toggle tiling / floating
 #-------------------------------
-bindsym Ctrl+space floating toggle
+bindsym $mod1+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 #-------------------------------
@@ -339,7 +339,9 @@ for_window [window_role="Preferences"]              floating enable
 # assign program to workspace
 #-------------------------------
 assign [class="jetbrains-pycharm-ce"]               → $ws1
+assign [class="Subl"]                              → $ws1
 assign [class="URxvt"]                              → $ws1
+assign [class="Code"]                               → $ws2
 assign [class="jetbrains-webstorm"]                 → $ws2
 assign [class="google-chrome"]                      → $ws3
 assign [class="dolphin"]                            → $ws4

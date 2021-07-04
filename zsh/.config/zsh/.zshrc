@@ -68,6 +68,7 @@ alias src="source $HOME/.config/zsh/.zshrc"
 alias dotup="cd $HOME/.dotfiles/ && sh ./install.sh && cd $HOME"
 alias shut="sudo shutdown now"
 alias res="sudo reboot now"
+alias code-oss="code"
 alias v='nvim'
 alias s='subl'
 alias vim=nvim

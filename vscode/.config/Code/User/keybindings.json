@@ -1,48 +1,53 @@
 // Place your key bindings in this file to override the defaults
 [
-  {
-    "key": "ctrl+b",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "alt+left",
-    "command": "workbench.action.navigateBack"
-  },
-  {
-    "key": "alt+right",
-    "command": "workbench.action.navigateForward"
-  },
-  {
-    "key": "ctrl+w",
-    "command": "workbench.action.terminal.kill",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "workbench.action.terminal.split",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "extension.advancedNewFile",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "ctrl+shift+c",
-    "command": "comment-divider.makeSubHeader",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+r",
-    "command": "macros.resetWorkspace"
-  },
+	{
+		"key": "ctrl+b",
+		"command": "workbench.action.toggleSidebarVisibility"
+	},
+	{
+		"key": "alt+left",
+		"command": "workbench.action.navigateBack"
+	},
+	{
+		"key": "alt+right",
+		"command": "workbench.action.navigateForward"
+	},
+	{
+		"key": "ctrl+w",
+		"command": "workbench.action.terminal.kill",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+n",
+		"command": "workbench.action.terminal.split",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+n",
+		"command": "extension.advancedNewFile",
+		"when": "!terminalFocus"
+	},
+	{
+		"key": "ctrl+shift+c",
+		"command": "comment-divider.makeSubHeader",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "macros.resetWorkspace"
+	},
+	{
+		"key": "ctrl+/",
+		"command": "macros.commentLineGoDown",
+		"when": "editorTextFocus"
+	},
 
-  {
-    "key": "ctrl+alt+1",
-    "command": "workbench.action.editorLayoutSingle"
-  },
-  {
-    "key": "ctrl+alt+2",
-    "command": "workbench.action.editorLayoutTwoColumns"
-  }
+	{
+		"key": "ctrl+alt+1",
+		"command": "workbench.action.editorLayoutSingle"
+	},
+	{
+		"key": "ctrl+alt+2",
+		"command": "workbench.action.editorLayoutTwoColumns"
+	}
 ]

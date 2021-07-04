@@ -8,5 +8,5 @@ Actions = openvscode
 
 [Desktop Action openvscode]
 Name = Open In VSCode
-Exec=/usr/bin/code-oss --no-sandbox --new-window %f
+Exec=/usr/bin/code --no-sandbox --new-window %f
 Icon=com.visualstudio.code.oss

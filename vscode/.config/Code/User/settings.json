@@ -17,7 +17,6 @@
 	"editor.fontSize": 15,
 	"editor.fontFamily": "Input Mono Compressed",
 	"files.autoSave": "afterDelay",
-	"terminal.integrated.fontSize": 15,
 	"[Log]": {
 		"editor.fontSize": 12
 	},
@@ -27,7 +26,10 @@
 	"workbench.colorCustomizations": {
 		"[Blueberry dark theme]": {
 			"editorCursor.background": "#ffff4d",
-			"editorCursor.foreground": "#ffff4d"
+			"editorCursor.foreground": "#ffff4d",
+			"scrollbarSlider.activeBackground": "#31ae8436",
+			"scrollbarSlider.background": "#31AE8480",
+			"scrollbarSlider.hoverBackground": "#27E8A780"
 		}
 	},
 	"window.menuBarVisibility": "toggle",
@@ -55,7 +57,6 @@
 	},
 	"workbench.editor.tabCloseButton": "off",
 	"workbench.settings.editor": "json",
-	"editor.cursorBlinking": "solid",
 	"breadcrumbs.symbolPath": "off",
 	"workbench.editorAssociations": {
 		"*.ipynb": "jupyter.notebook.ipynb"
@@ -69,10 +70,15 @@
 		"resetWorkspace": [
 			"workbench.action.closeAllEditors",
 			"workbench.files.action.collapseExplorerFolders"
-		]
+		],
+		"commentLineGoDown": ["editor.action.commentLine", "cursorDown"]
 	},
 	"prettier.useTabs": true,
 	"prettier.tabWidth": 4,
 	"prettier.singleQuote": true,
-	"workbench.startupEditor": "none"
+	"workbench.startupEditor": "none",
+	"projectManager.git.baseFolders": ["/home/omid/Documents/Projects"],
+	"terminal.integrated.fontFamily": "monospace",
+	"terminal.integrated.fontSize": 12,
+	"terminal.integrated.lineHeight": 1
 }

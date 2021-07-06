@@ -5,8 +5,8 @@
 	[
 		"node_modules"
 	],
-	"font_face": "sono",
-	"font_size": 11,
+	"font_face": "monospace",
+	"font_size": 10,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":

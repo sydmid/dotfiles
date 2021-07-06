@@ -53,7 +53,7 @@
 	"[python]": {
 		"editor.rulers": [79],
 		"editor.wordWrap": "on",
-		"editor.quickSuggestions": false
+		"editor.quickSuggestions": true
 	},
 	"workbench.editor.tabCloseButton": "off",
 	"workbench.settings.editor": "json",
@@ -80,5 +80,8 @@
 	"projectManager.git.baseFolders": ["/home/omid/Documents/Projects"],
 	"terminal.integrated.fontFamily": "monospace",
 	"terminal.integrated.fontSize": 12,
-	"terminal.integrated.lineHeight": 1
+	"terminal.integrated.lineHeight": 1,
+	"files.associations": {
+		"*.py": "python"
+	}
 }

@@ -1,4 +1,4 @@
-main_prompt=$(printf "ss\nbooks\ntuts\ntests\ngists\nprojects" | rofi -dmenu) &&
+main_prompt=$(printf "ss\nbooks\ntuts\ntests\ngists\nprojects\ncheats" | rofi -dmenu) &&
 case $main_prompt in
 
   ss)
@@ -81,7 +81,7 @@ case $main_prompt in
         rofi -show file-browser-extended [ -file-browser-dir /home/omid/Documents/Tutorials ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
       ;;
       downloads)
-        rofi -show file-browser-extended [ -file-browser-dir /home/omid/Downloads/Downloaded\ Tutorials ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
+        rofi -show file-browser-extended [ -file-browser-dir /home/omid/Downloads/DownTuts ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
       ;;
     esac
   ;;
@@ -110,6 +110,10 @@ case $main_prompt in
 
   projects)
     rofi -show file-browser-extended [ -file-browser-dir /home/omid/Documents/Projects ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
+  ;;
+
+  cheats)
+    rofi -show file-browser-extended [ -file-browser-dir /home/omid/Documents/CheatSheets ] [ -file-browser-depth 1 ] [ -file-browser-hide-parent ]
   ;;
 
   *)

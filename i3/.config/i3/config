@@ -22,10 +22,8 @@ exec              --no-startup-id sed -i "s/export SSSession='.*'/export SSSessi
 exec              --no-startup-id imwheel -b 45
 exec              --no-startup-id "sleep 2; clipmenud"
 exec              --no-startup-id "sleep 2; dunstctl set-paused true"
-exec              --no-startup-id "sleep 3; tdrop --y-offset=16% -w 48% -h 68% --x-offset=26% -mat anki"
 exec_always       --no-startup-id "sleep 2; python $HOME/.scripts/auto_scratchpad.py True,zsh,floatkitty,floatkitty,,"
 exec_always       --no-startup-id "sleep 2; python $HOME/.scripts/auto_scratchpad.py True,,dolphin,dolphin,,"
-exec_always       --no-startup-id "sleep 2; python $HOME/.scripts/auto_scratchpad.py True,,Anki,anki,,"
 exec_always       --no-startup-id xautolock -time 10 -locker blurlock
 exec_always       --no-startup-id "setxkbmap -option caps:ctrl_modifier; xcape -e Caps_Lock=Escape; xmodmap -e 'keycode 169 = Print'"
 exec_always       --no-startup-id nm-applet
@@ -50,7 +48,7 @@ bindsym $mod1+Shift+w               workspace $ws3; exec google-chrome-stable
 bindsym $mod1+w                     workspace $ws3; exec google-chrome-unstable
 bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser-extended [ -file-browser-dir /home/omid ] [ -file-browser-hide-parent ]
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat leafpad
-bindsym $mod1+c                     exec --no-startup-id tdrop --y-offset=16% -w 48% -h 68% --x-offset=26% -mat anki
+bindsym $mod1+c                     exec --no-startup-id tdrop --y-offset=16% -w 30% -h 68% --x-offset=35% -mat anki
 bindsym $mod2+v                     exec --no-startup-id "CM_LAUNCHER=rofi clipmenu -i && xdotool type '$(xclip -o -selection clipboard)'"
 bindsym $mod1+Ctrl+b                exec --no-startup-id blurlock
 bindsym $mod1+Ctrl+m                exec --no-startup-id pavucontrol

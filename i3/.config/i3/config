@@ -44,8 +44,8 @@ bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/omid_men
 bindsym $mod2+space                 exec --no-startup-id "rofi -show drun"
 bindsym $mod1+t                     workspace $ws1; exec --no-startup-id urxvt
 bindsym $mod1+e                     exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 dolphin
-bindsym $mod1+Shift+w               workspace $ws3; exec google-chrome-stable
-bindsym $mod1+w                     workspace $ws3; exec google-chrome-unstable
+bindsym $mod1+Shift+w               workspace $ws3; exec --no-startup-id google-chrome-stable
+bindsym $mod1+w                     workspace $ws3; exec --no-startup-id google-chrome-unstable
 bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser-extended [ -file-browser-dir /home/omid ] [ -file-browser-hide-parent ]
 bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat leafpad
 bindsym $mod1+c                     exec --no-startup-id tdrop --y-offset=16% -w 30% -h 68% --x-offset=35% -mat anki

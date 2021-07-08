@@ -49,5 +49,15 @@
 	{
 		"key": "ctrl+alt+2",
 		"command": "workbench.action.editorLayoutTwoColumns"
+	},
+	{
+		"key": "ctrl+`",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+enter",
+		"command": "workbench.action.toggleMaximizedPanel",
+		"when": "terminalFocus"
 	}
 ]

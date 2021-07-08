@@ -25,8 +25,39 @@
 	"editor.minimap.enabled": false,
 	"workbench.colorCustomizations": {
 		"[Blueberry dark theme]": {
+			"editor.background": "#1e1e1e",
+
+			"activityBar.background": "#333333a2",
+
+			"sideBarSectionHeader.background": "#00000000",
+			"sideBar.background": "#252526",
+			"sideBar.dropBackground": "#53595d80",
+
+			"tab.activeBackground": "#1e1e1e",
+			"tab.inactiveBackground": "#2d2d2d",
+			"tab.unfocusedActiveBackground": "#1e1e1e",
+			"tab.unfocusedInactiveBackground": "#2d2d2d",
+
+			"statusBar.background": "#007acc",
+			"statusBar.debuggingBackground": "#cc6633",
+			"statusBar.noFolderBackground": "#333333a2",
+			"statusBarItem.activeBackground": "#ffffff2e",
+			"statusBarItem.errorBackground": "#c72e0f",
+			"statusBarItem.hoverBackground": "#ffffff1f",
+			"statusBarItem.prominentBackground": "#00000080",
+			"statusBarItem.prominentForeground": "#ffffff",
+			"statusBarItem.prominentHoverBackground": "#0000004d",
+			"statusBarItem.errorForeground": "#ffffff",
+			"statusBar.debuggingForeground": "#ffffff",
+			"statusBar.noFolderForeground": "#ffffff",
+			"statusBar.foreground": "#ffffff",
+
+			"editorGroupHeader.noTabsBackground": "#1e1e1e",
+			"editorGroupHeader.tabsBackground": "#252526",
+
 			"editorCursor.background": "#ffff4d",
 			"editorCursor.foreground": "#ffff4d",
+
 			"scrollbarSlider.activeBackground": "#31ae8436",
 			"scrollbarSlider.background": "#31AE8480",
 			"scrollbarSlider.hoverBackground": "#27E8A780"

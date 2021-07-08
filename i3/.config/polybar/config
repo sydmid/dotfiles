@@ -24,7 +24,7 @@ colorE=#7851a9 # purple
 colorF=#574F4A # brown
 
 [variables]
-mpadding = 2
+mpadding = 1
 margin = 3
 
 [bar/omid]
@@ -57,9 +57,9 @@ module-margin-left = 0
 module-margin-right = 0
 
 modules-left = i3
-modules-center =
+modules-center = date
 #modules-right = netspeed memory cpu battery xkeyboard wlan pulseaudio pulseaudio-control dunst wallpaper
-modules-right = xkeyboard battery pulseaudio-control dunst date powermenu clocking
+modules-right = memory-info battery xkeyboard pulseaudio-control dunst powermenu
 overline-size = 6
 overline-color=${colors.xbs}
 underline-size = 3
@@ -326,7 +326,7 @@ format-background=${colors.xbg2}
 type = internal/memory
 interval = 2
 label = %percentage_used%%
-format = <bar-used>
+format = <bar-used> dool
 bar-used-indicator =
 bar-used-width = 6
 bar-used-foreground-0 = #DDDDDD
@@ -336,7 +336,7 @@ bar-used-foreground-3 = #ff5555
 bar-used-fill = ▐
 bar-used-empty = ▐
 bar-used-empty-foreground = #444444
-format-prefix = " Mem: "
+format-prefix = " RAM: "
 
 [module/title]
 type = internal/xwindow
@@ -383,13 +383,11 @@ tail = true
 label-padding = 2
 
 [module/powermenu]
+format-padding = ${variables.mpadding}
 type = custom/menu
-
 expand-right = true
-
-format-spacing = 1
-
-label-open = out? 
+#format-spacing = 1
+label-open = out?
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
@@ -410,6 +408,13 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/memory-info]
+type = custom/script
+format-padding = ${variables.mpadding}
+exec = ~/.config/polybar/ram.sh
+click-left = ~/.config/polybar/ram.sh --popup
+format-underline = ${colors.primary}
 
 # # Icons mixed from Font Awesome 5 and Material Icons
 # # You can copy-paste your options for each possible action, which is more

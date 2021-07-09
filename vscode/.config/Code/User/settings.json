@@ -2,9 +2,17 @@
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": true,
 	"editor.formatOnType": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[html]": {
 		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"[python]": {
+		"editor.rulers": [
+			79
+		],
+		"editor.wordWrap": "on",
+		"editor.renderIndentGuides": false,
+		"editor.quickSuggestions": true,
+		"editor.formatOnPaste": false
 	},
 	"workbench.colorTheme": "Blueberry dark theme",
 	"explorer.confirmDragAndDrop": false,
@@ -15,7 +23,7 @@
 	"window.openFilesInNewWindow": "on",
 	"window.titleBarStyle": "native",
 	"editor.fontSize": 15,
-	"editor.fontFamily": "Input Mono Compressed",
+	"editor.fontFamily": "Mplus 1 Code",
 	"files.autoSave": "afterDelay",
 	"[Log]": {
 		"editor.fontSize": 12
@@ -38,7 +46,7 @@
 			"tab.unfocusedActiveBackground": "#1e1e1e",
 			"tab.unfocusedInactiveBackground": "#2d2d2d",
 
-			"statusBar.background": "#007acc",
+			"statusBar.background": "#333333a2",
 			"statusBar.debuggingBackground": "#cc6633",
 			"statusBar.noFolderBackground": "#333333a2",
 			"statusBarItem.activeBackground": "#ffffff2e",
@@ -81,11 +89,6 @@
 	"window.title": "vscode ${activeEditorShort}",
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
-	"[python]": {
-		"editor.rulers": [79],
-		"editor.wordWrap": "on",
-		"editor.quickSuggestions": true
-	},
 	"workbench.editor.tabCloseButton": "off",
 	"workbench.settings.editor": "json",
 	"breadcrumbs.symbolPath": "off",
@@ -114,5 +117,8 @@
 	"terminal.integrated.lineHeight": 1,
 	"files.associations": {
 		"*.py": "python"
-	}
+	},
+	"workbench.iconTheme": "material-icon-theme",
+	"python.formatting.provider": "black",
+	"zenMode.fullScreen": false
 }

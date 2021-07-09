@@ -232,10 +232,11 @@ format-padding = ${variables.mpadding}
 type = internal/date
 interval = 1
 date-alt = %a %Y-%m-%d
-date = %a %d
+#date = %a %d
+date =
 time-alt = %k:%M:%S
 time = %k:%M
-label = %date% %time%
+label = %time% %date%
 
 [module/netspeed]
 type = internal/network

@@ -71,7 +71,7 @@
 			"scrollbarSlider.hoverBackground": "#27E8A780"
 		}
 	},
-	"window.menuBarVisibility": "toggle",
+	"window.menuBarVisibility": "compact",
 	"files.exclude": {
 		"package-lock.json": true,
 		"yarn.lock": true,

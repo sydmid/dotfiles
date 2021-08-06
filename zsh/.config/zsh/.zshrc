@@ -153,4 +153,4 @@ ssarch() {
 }
 
 
-source $HOME/.config/zsh/plugins/git-prompt.zsh/omid_theme.zsh
+source $HOME/.config/zsh/omid_theme.zsh

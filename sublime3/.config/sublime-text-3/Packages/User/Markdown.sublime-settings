@@ -1,6 +1,9 @@
 {
-  "line_numbers": true,
-  "word_wrap": false,
-  "rulers": [79],
-  "color_scheme": "Packages/Gutter Color/predawn.gcfix.tmTheme",
+	"color_scheme": "Packages/Gutter Color/predawn.gcfix.tmTheme",
+	"line_numbers": true,
+	"rulers":
+	[
+		79
+	],
+	"word_wrap": false
 }

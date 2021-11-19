@@ -8,5 +8,5 @@ configuration {
   display-window: " Window";
   display-run: " Run";
 }
-
 @theme "./themes/theme.rasi"
+

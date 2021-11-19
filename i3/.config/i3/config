@@ -11,6 +11,8 @@ exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authenticat
 #exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 #-----------External HDMI Port Startup-----------
 #exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
+#-----------Comfortable seat startup-------------
+exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
 exec              --no-startup-id nm-applet
 exec              --no-startup-id blueman-applet
 exec              --no-startup-id $HOME/.scripts/bt_keyboard_connect.sh
@@ -55,7 +57,7 @@ bindsym $mod1+Ctrl+m                exec --no-startup-id pavucontrol
 
 # Print screens
 #-------------------------------
-bindsym $mod2+Print                 --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/retired.sh
+#bindsym $mod2+Print                 --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/retired.sh
 bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/alternate.sh
 bindsym $mod1+Print                 --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/normal.sh
 bindsym Ctrl+Print                  --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/selection.sh
@@ -134,6 +136,11 @@ bindsym Ctrl+Shift+7 exec --no-startup-id "xrandr --output eDP1 --primary --mode
 bindsym Ctrl+Shift+6 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --primary --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 # Vertical
 bindsym Ctrl+Shift+5 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
+# Comfortable
+bindsym Ctrl+Shift+c exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
+
+
+
 
 # Display Port (DP1) modes
 #-------------------------------
@@ -303,8 +310,8 @@ bindsym Shift+F10                exec --no-startup-id amixer -q -D pulse sset Ma
 for_window [class="^Anki$"]                         floating enable, resize set 800 1000
 for_window [class="Com.github.alainm23.planner"]    floating enable, resize set 1000 1000
 for_window [class="Gahshomar"]                      floating enable, resize set 800 1000
-for_window [class="floatkitty"]                     floating enable, border pixel 1
-for_window [class="dolphin"]                        floating enable, border pixel 1
+for_window [class="floatkitty"]                     floating enable, border pixel 0
+for_window [class="dolphin"]                        floating enable, border pixel 0
 for_window [class="Protonvpn"]                      floating enable, resize set 800 1200, move absolute position center
 for_window [title="alsamixer"]                      floating enable
 for_window [title="File Transfer*"]                 floating enable
@@ -388,10 +395,10 @@ bindsym $mod1+r mode "resize"
 
 # Gaps and Layouts
 #-------------------------------
-gaps top 0
-gaps left 0
-gaps right 0
-gaps bottom 35
+#gaps top 0
+#gaps left 0
+#gaps right 0
+#gaps bottom 35
 bindsym $mod1+0             "gaps outer current set 0"
 bindsym $mod1+p             "layout splith; gaps top current set 0; gaps bottom current set 35; gaps left current set 0; gaps right current set 0"
 bindsym $mod1+Shift+p       "layout tabbed; gaps top current set 0; gaps bottom current set 35; gaps left current set 0; gaps right current set 0"

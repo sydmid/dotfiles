@@ -62,6 +62,7 @@ bindkey -M vicmd 'V' edit-command-line
 
 #{{{ Aliases
 
+alias dev='cd ~/Desktop/dev'
 alias g='git'
 alias gitup="git pull --recurse-submodules"
 alias src="source $HOME/.config/zsh/.zshrc"

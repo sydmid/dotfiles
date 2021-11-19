@@ -1,1 +1,1 @@
-export SSSession='ajax_basic'
+export SSSession='General'

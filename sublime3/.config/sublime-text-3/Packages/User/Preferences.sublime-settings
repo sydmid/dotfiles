@@ -6,7 +6,7 @@
 		"node_modules"
 	],
 	"font_face": "Input Mono Condensed",
-	"font_size": 11,
+	"font_size": 10,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":

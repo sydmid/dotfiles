@@ -7,12 +7,7 @@
 # startup applications
 #-------------------------------
 exec              --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#-----------External Display Port Startup-----------
-#exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
-#-----------External HDMI Port Startup-----------
-#exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
-#-----------Comfortable seat startup-------------
-exec              --no-startup-id "sleep 2; xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
+exec              --no-startup-id "mons -a"
 exec              --no-startup-id nm-applet
 exec              --no-startup-id blueman-applet
 exec              --no-startup-id $HOME/.scripts/bt_keyboard_connect.sh
@@ -25,7 +20,7 @@ exec              --no-startup-id imwheel -b 45
 exec              --no-startup-id "sleep 2; clipmenud"
 exec              --no-startup-id "sleep 2; dunstctl set-paused true"
 exec_always       --no-startup-id "sleep 2; python $HOME/.scripts/auto_scratchpad.py True,zsh,floatkitty,floatkitty,,"
-exec_always       --no-startup-id "sleep 2; python $HOME/.scripts/auto_scratchpad.py True,,dolphin,dolphin,,"
+exec_always       --no-startup-id "sleep 2; python $HOME/.scripts/auto_scratchpad.py True,,Pcmanfm,pcmanfm,,"
 exec_always       --no-startup-id xautolock -time 10 -locker blurlock
 exec_always       --no-startup-id "setxkbmap -option caps:ctrl_modifier; xcape -e Caps_Lock=Escape; xmodmap -e 'keycode 169 = Print'"
 exec_always       --no-startup-id nm-applet
@@ -41,26 +36,45 @@ exec_always       --no-startup-id alttab -fg "#f1f1f1" -bg "#3F3F3F" -frame "#42
 
 # shortcut applications
 #-------------------------------
-bindsym $mod1+Return                exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
+bindsym $mod1+Return                exec --no-startup-id tdrop -a --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
 bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/omid_menu.sh
 bindsym $mod2+space                 exec --no-startup-id "rofi -show drun"
 bindsym $mod1+t                     workspace $ws1; exec --no-startup-id urxvt
-bindsym $mod1+e                     exec --no-startup-id tdrop --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 dolphin
+bindsym $mod1+e                     exec --no-startup-id tdrop -a --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 pcmanfm
 bindsym $mod1+Shift+w               workspace $ws3; exec --no-startup-id google-chrome-stable
 bindsym $mod1+w                     workspace $ws3; exec --no-startup-id google-chrome-unstable
 bindsym $mod1+f                     exec --no-startup-id rofi -show file-browser-extended [ -file-browser-dir /home/omid ] [ -file-browser-hide-parent ]
-bindsym $mod1+n                     exec --no-startup-id tdrop --y-offset=10% -w 78% -h 78% --x-offset=11% -mat leafpad
-bindsym $mod1+c                     exec --no-startup-id tdrop --y-offset=16% -w 30% -h 68% --x-offset=35% -mat anki
+bindsym $mod1+n                     exec --no-startup-id tdrop -a --y-offset=10% -w 78% -h 78% --x-offset=11% -mat leafpad
+bindsym $mod1+c                     exec --no-startup-id tdrop -a --y-offset=16% -w 30% -h 68% --x-offset=35% -mat anki
 bindsym $mod2+v                     exec --no-startup-id "CM_LAUNCHER=rofi clipmenu -i && xdotool type '$(xclip -o -selection clipboard)'"
 bindsym $mod1+Ctrl+b                exec --no-startup-id blurlock
 bindsym $mod1+Ctrl+m                exec --no-startup-id pavucontrol
 
 # Print screens
 #-------------------------------
-#bindsym $mod2+Print                 --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/retired.sh
-bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/alternate.sh
+bindsym Print                       --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/retired.sh
+bindsym Shift+Print                 --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/alternate.sh
 bindsym $mod1+Print                 --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/normal.sh
 bindsym Ctrl+Print                  --release exec --no-startup-id /home/omid/.scripts/ss/screen_shot_modes/selection.sh
+
+
+# Brightness
+#-------------------------------
+# Internal Monitor
+#--
+bindsym XF86MonBrightnessDown exec --no-startup-id "$HOME/.scripts/brightness-change.sh - eDP1"
+bindsym XF86MonBrightnessUp exec --no-startup-id "$HOME/.scripts/brightness-change.sh + eDP1"
+# External Monitor
+#--
+bindsym Shift+XF86MonBrightnessDown exec "$HOME/.scripts/brightness-change.sh - HDMI2"
+bindsym Shift+XF86MonBrightnessUp exec "$HOME/.scripts/brightness-change.sh + HDMI2"
+
+
+# MultiMonitor Config
+#-------------------------------
+bindsym Ctrl+Shift+1 exec --no-startup-id "mons -o; echo 'Xft.dpi: 192' | xrdb -override -; sed -i 's/Xft.dpi:.*/Xft.dpi: 192/' ~/.Xresources"
+bindsym Ctrl+Shift+2 exec --no-startup-id "mons -s; echo 'Xft.dpi: 112' | xrdb -override -; sed -i 's/Xft.dpi:.*/Xft.dpi: 112/' ~/.Xresources"
+
 
 # font for window titles and bar
 #-------------------------------
@@ -116,38 +130,6 @@ set $right  l
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
 
-# Brightness
-#-------------------------------
-bindsym XF86MonBrightnessDown exec --no-startup-id "$HOME/.scripts/brightness-change.sh - eDP1"
-bindsym XF86MonBrightnessUp exec --no-startup-id "$HOME/.scripts/brightness-change.sh + eDP1"
-
-# External Monitor
-#-------------------------------
-bindsym Shift+XF86MonBrightnessDown exec "$HOME/.scripts/brightness-change.sh - DP1"
-bindsym Shift+XF86MonBrightnessUp exec "$HOME/.scripts/brightness-change.sh + DP1"
-
-# Arandr Configs
-#-------------------------------
-bindsym Ctrl+Shift+1 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
-
-# HDMI (2) modes
-#-------------------------------
-bindsym Ctrl+Shift+7 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 0x2160 --rotate normal --rate 60 --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off ; nitrogen --force-setter=xinerama --restore"
-bindsym Ctrl+Shift+6 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --mode 3840x2160 --primary --pos 0x0 --rotate normal --rate 60 --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
-# Vertical
-bindsym Ctrl+Shift+5 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x2160 --rate 60 --pos 0x0 --rotate left --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
-# Comfortable
-bindsym Ctrl+Shift+c exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
-
-
-
-
-# Display Port (DP1) modes
-#-------------------------------
-bindsym Ctrl+Shift+2 exec --no-startup-id "xrandr --output eDP1 --primary --mode 2560x1440 --pos 572x2160 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
-bindsym Ctrl+Shift+3 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off --output HDMI2 --off; nitrogen --force-setter=xinerama --restore"
-# Vertical
-bindsym Ctrl+Shift+4 exec --no-startup-id "xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off; nitrogen --force-setter=xinerama --restore"
 
 # Icons of the workspaces
 #-------------------------------
@@ -310,8 +292,8 @@ bindsym Shift+F10                exec --no-startup-id amixer -q -D pulse sset Ma
 for_window [class="^Anki$"]                         floating enable, resize set 800 1000
 for_window [class="Com.github.alainm23.planner"]    floating enable, resize set 1000 1000
 for_window [class="Gahshomar"]                      floating enable, resize set 800 1000
-for_window [class="floatkitty"]                     floating enable, border pixel 0
-for_window [class="dolphin"]                        floating enable, border pixel 0
+for_window [class="floatkitty"]                     floating enable, border pixel 0 sticky enable
+for_window [class="Pcmanfm"]                        floating enable, border pixel 0 sticky enable
 for_window [class="Protonvpn"]                      floating enable, resize set 800 1200, move absolute position center
 for_window [title="alsamixer"]                      floating enable
 for_window [title="File Transfer*"]                 floating enable

@@ -1,6 +1,6 @@
 configuration {
   combi-modi: "window,drun,run,file-browser-extended,keys";
-  font: "System San Francisco Display 18";
+  font: "System San Francisco Display 12";
   modi: "combi,file-browser-extended,keys";
   show-icons: false;
   lines: 8;

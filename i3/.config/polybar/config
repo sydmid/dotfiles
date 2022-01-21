@@ -32,7 +32,7 @@ background = ${colors.xbg}
 foreground = ${colors.xfg}
 
 width = 100%
-height = 35
+height = 30
 offset-y = 0
 offset-x = 0
 
@@ -43,7 +43,7 @@ border-bottom-size = 5
 border-right-size = 0
 border-left-size = 0
 
-bottom = false
+bottom = true
 #override-redirect = true
 
 font-0 = "Iosevka:style=regular:size=16;3"
@@ -56,10 +56,10 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-modules-left = i3
-modules-center = date
+modules-left = new_appmenu i3
+modules-center =
 #modules-right = netspeed memory cpu battery xkeyboard wlan pulseaudio pulseaudio-control dunst wallpaper
-modules-right = memory-info battery xkeyboard pulseaudio-control dunst powermenu
+modules-right = memory-info battery xkeyboard pulseaudio-control dunst date new_poweroff
 overline-size = 6
 overline-color=${colors.xbs}
 underline-size = 3
@@ -383,33 +383,6 @@ type = custom/script
 tail = true
 label-padding = 2
 
-[module/powermenu]
-format-padding = ${variables.mpadding}
-type = custom/menu
-expand-right = true
-#format-spacing = 1
-label-open = out?
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
 [module/memory-info]
 type = custom/script
 format-padding = ${variables.mpadding}
@@ -427,3 +400,33 @@ format-underline = ${colors.primary}
 # click-middle = pulseaudio-control --sink-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-sink
 # scroll-up = pulseaudio-control --volume-max 130 up
 # scroll-down = pulseaudio-control --volume-max 130 down
+
+
+[module/new_poweroff]
+type = custom/text
+content = 
+
+content-background = ${color.bg}
+content-foreground = ${color.cyan}
+
+click-left = ~/.config/rofi/bin/menu_powermenu &
+
+
+[module/new_appmenu]
+type = custom/text
+content = 
+content-padding = 2
+content-background = ${color.bg}
+content-foreground = ${color.cyan}
+
+click-left = ~/.config/rofi/bin/launcher_colorful &
+
+[module/new_test]
+type = custom/text
+content = 
+content-padding = 2
+content-background = ${color.bg}
+content-foreground = ${color.cyan}
+
+click-left = ~/.config/rofi/bin/menu_screenshot &
+

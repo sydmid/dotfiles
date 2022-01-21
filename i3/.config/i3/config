@@ -38,7 +38,7 @@ exec_always       --no-startup-id alttab -fg "#f1f1f1" -bg "#3F3F3F" -frame "#42
 #-------------------------------
 bindsym $mod1+Return                exec --no-startup-id tdrop -a --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 kitty --class=floatkitty
 bindsym $mod1+space                 exec --no-startup-id $HOME/.scripts/omid_menu.sh
-bindsym $mod2+space                 exec --no-startup-id "rofi -show drun"
+bindsym $mod2+space                 exec --no-startup-id "$HOME/.config/rofi/bin/launcher_misc"
 bindsym $mod1+t                     workspace $ws1; exec --no-startup-id urxvt
 bindsym $mod1+e                     exec --no-startup-id tdrop -a --y-offset=10%  -w 78% -h 78% --x-offset=11% -mat -n 1 pcmanfm
 bindsym $mod1+Shift+w               workspace $ws3; exec --no-startup-id google-chrome-stable
@@ -167,7 +167,7 @@ focus_follows_mouse no
 
 # window border settings
 #-------------------------------
-default_border          pixel 1
+default_border          normal
 default_floating_border pixel 1
 
 # hiding borders adjacent to the screen edges

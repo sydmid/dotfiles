@@ -4,7 +4,19 @@ oc-cmd     "subl;name:subl;icon:sublime-text"
 oc-cmd     "code;name:code;icon:com.visualstudio.code.oss"
 oc-cmd     "dolphin;name:file;icon:dolphin"
 oc-cmd     "mpv;name:mpv;icon:mpv"
+
+cmd "exo-open"
+depth 1
+open-multi-key "kb-accept-alt"
+open-custom-key "kb-custom-11"
+icon-theme "Adwaita"
+hide-hidden-symbol ""
+path-sep "/"
+up-text "up"
+up-icon "go-previous"
+oc-search-path
+exclude workspace
+
 follow-symlinks
-depth      1
 show-hidden
 open-parent-as-self

@@ -6,7 +6,7 @@ Xft.rgba:      rgb
 Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-Xft.dpi:       192
+Xft.dpi: 112
 
 !! Colorscheme
 
